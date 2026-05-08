@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMX Companies — HR Forms Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #3d3530;
+    --navy-mid: #6b4f3a;
+    --navy-light: #8c6149;
+    --gold: #c0aa88;
+    --gold-light: #ead9c8;
+    --cream: #f3ecdd;
+    --cream-dark: #f0dbd3;
+    --text: #3d3530;
+    --text-muted: #5a6175;
+    --white: #ffffff;
+    --border: #d8cfc0;
+    --success: #2d6a4f;
+    --danger: #9b2226;
+    --input-bg: #fdfaf5;
+    --shadow: 0 4px 24px rgba(10,22,40,0.10);
+    --shadow-deep: 0 8px 40px rgba(10,22,40,0.18);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.3);
+  }
+  .site-header .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .brand-mark {
+    width: 38px; height: 38px;
+    background: var(--gold);
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 18px;
+    letter-spacing: -1px;
+  }
+  .brand-text {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .brand-text span {
+    color: var(--gold-light);
+    font-size: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    display: block;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .header-badge {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 4px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    padding: 64px 48px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: -60px; top: -60px;
+    width: 340px; height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: 40px; top: 40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+  .hero-inner { max-width: 900px; position: relative; z-index: 1; }
+  .hero-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .hero-forms-count {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+  }
+  .count-item { text-align: center; }
+  .count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: var(--gold-light);
+    display: block;
+  }
+  .count-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ── NAV TABS ── */
+  .forms-nav {
+    background: var(--navy-mid);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .forms-nav::-webkit-scrollbar { height: 0; }
+  .nav-tab {
+    padding: 18px 24px;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    background: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    letter-spacing: 0.3px;
+  }
+  .nav-tab:hover { color: rgba(255,255,255,0.8); }
+  .nav-tab.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main { max-width: 960px; margin: 0 auto; padding: 48px 24px 80px; }
+
+  /* ── FORM PANEL ── */
+  .form-panel { display: none; }
+  .form-panel.active { display: block; }
+
+  .form-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .form-card-header {
+    background: linear-gradient(90deg, var(--navy) 0%, var(--navy-light) 100%);
+    padding: 32px 40px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .form-icon {
+    width: 48px; height: 48px;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .form-card-header-text h2 {
+    font-family: 'Playfair Display', serif;
+    color: var(--white);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .form-card-header-text p {
+    color: rgba(255,255,255,0.55);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  .form-ref {
+    margin-left: auto;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ── FORM BODY ── */
+  .form-body { padding: 40px; }
+
+  .notice-box {
+    background: #fdf7e9;
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 32px;
+    font-size: 13px;
+    color: #6b4f1a;
+    line-height: 1.5;
+  }
+  .notice-box strong { color: #4a3408; }
+
+  .section-divider {
+    margin: 36px 0 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-divider-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+  .section-divider-line {
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .form-grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  .form-grid.full { grid-template-columns: 1fr; }
+  @media (max-width: 680px) {
+    .form-grid, .form-grid.three { grid-template-columns: 1fr; }
+  }
+
+  .field-group { display: flex; flex-direction: column; gap: 6px; }
+  .field-group.span-2 { grid-column: span 2; }
+  @media (max-width: 680px) { .field-group.span-2 { grid-column: span 1; } }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--navy);
+  }
+  label .req { color: var(--danger); margin-left: 3px; }
+  label .hint {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+    display: block;
+    margin-top: 2px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="date"],
+  input[type="number"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 11px 14px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    appearance: none;
+  }
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--navy-light);
+    box-shadow: 0 0 0 3px rgba(30,58,95,0.08);
+  }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235a6175' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+  }
+
+  /* Rating stars */
+  .rating-group { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .rating-option { display: none; }
+  .rating-option + label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+    background: var(--input-bg);
+    transition: all 0.15s;
+  }
+  .rating-option:checked + label {
+    background: var(--navy);
+    border-color: var(--navy);
+    color: var(--white);
+  }
+  .rating-option + label:hover { border-color: var(--navy-light); color: var(--navy); }
+
+  /* Checkbox rows */
+  .checklist { display: flex; flex-direction: column; gap: 10px; }
+  .check-item { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; }
+  .check-item input[type="checkbox"] { width: 16px; height: 16px; margin-top: 2px; accent-color: var(--navy); flex-shrink: 0; }
+  .check-item span { font-size: 14px; color: var(--text); line-height: 1.4; }
+
+  /* Signature block */
+  .signature-block {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    margin-top: 32px;
+  }
+  .signature-block h4 {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .sig-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 600px) { .sig-grid { grid-template-columns: 1fr; } }
+  .sig-line { border-bottom: 1px solid var(--navy); min-height: 40px; margin-bottom: 6px; }
+  .sig-label { font-size: 11px; color: var(--text-muted); }
+
+  /* Action bar */
+  .form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 40px;
+    background: var(--cream);
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .actions-left { font-size: 12px; color: var(--text-muted); }
+  .actions-right { display: flex; gap: 12px; }
+  .btn {
+    padding: 11px 24px;
+    border-radius: 6px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+    letter-spacing: 0.2px;
+  }
+  .btn-secondary {
+    background: var(--white);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+  .btn-secondary:hover { border-color: var(--navy-light); color: var(--navy); }
+  .btn-primary {
+    background: var(--navy);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(10,22,40,0.2);
+  }
+  .btn-primary:hover { background: var(--navy-light); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(10,22,40,0.25); }
+  .btn-gold {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .btn-gold:hover { background: var(--gold-light); }
+
+  /* KPI rows */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    align-items: start;
+    padding: 16px;
+    background: var(--input-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  .kpi-row-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 0 16px;
+    margin-bottom: 6px;
+  }
+  .kpi-row-header span {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .add-row-btn {
+    background: none;
+    border: 1px dashed var(--border);
+    border-radius: 6px;
+    padding: 10px;
+    width: 100%;
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 6px;
+  }
+  .add-row-btn:hover { border-color: var(--navy-light); color: var(--navy); background: var(--cream); }
+
+  /* 30-60-90 timeline */
+  .timeline-section {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .timeline-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .timeline-badge {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--navy);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 15px;
+  }
+  .timeline-header-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+  .timeline-header-text span {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+  .timeline-body { padding: 0 20px 20px; }
+
+  /* Print */
+  @media print {
+    .site-header, .hero, .forms-nav, .form-actions { display: none !important; }
+    .form-panel { display: block !important; page-break-after: always; }
+    .main { padding: 0; max-width: 100%; }
+    body { background: white; }
+    .form-card { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="brand">
+    <div class="brand-mark">A</div>
+    <div class="brand-text">
+      AMX Companies
+      <span>HR Forms Portal</span>
+    </div>
+  </div>
+  <div class="header-badge">Confidential · Internal Use Only</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Chief People Officer · Document Library</div>
+    <h1>Human Resources<br>Forms &amp; Templates</h1>
+    <p>Standardized forms for all people operations. Complete and submit through SharePoint. All submissions route to the CPO for review and approval per the Department Leader Playbook.</p>
+    <div class="hero-forms-count">
+      <div class="count-item"><span class="count-num">7</span><span class="count-label">Forms</span></div>
+      <div class="count-item"><span class="count-num">4</span><span class="count-label">Sections</span></div>
+      <div class="count-item"><span class="count-num">CPO</span><span class="count-label">Approval Required</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="forms-nav">
+  <button class="nav-tab active" onclick="showForm('prf')">📋 Position Request</button>
+  <button class="nav-tab" onclick="showForm('ccr')">💰 Compensation Change</button>
+  <button class="nav-tab" onclick="showForm('pnf')">⬆️ Promotion Nomination</button>
+  <button class="nav-tab" onclick="showForm('onboard')">🚀 30-60-90 Onboarding</button>
+  <button class="nav-tab" onclick="showForm('kpi')">🎯 KPI Documentation</button>
+  <button class="nav-tab" onclick="showForm('exit')">👋 Exit Interview</button>
+  <button class="nav-tab" onclick="showForm('interview')">🔍 Interview Scorecard</button>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- FORM 1 — POSITION REQUEST FORM (PRF)        -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div class="form-panel active" id="panel-prf">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">📋</div>
+        <div class="form-card-header-text">
+          <h2>Position Request Form</h2>
+          <p>Submit to CPO a minimum of 2 weeks before intended posting date. CPO reviews within 5 business days.</p>
+        </div>
+        <div class="form-ref">PRF</div>
+      </div>
+      <div class="form-body">
+        <div class="notice-box">
+          <strong>SOP 2.1 — Hiring &amp; Talent Acquisition:</strong> No role may be posted or offered without CPO approval. Verbal commitments on salary, start dates, or titles before CPO approval may create personal legal liability for the leader.
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Requestor Information</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Department Leader Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Department <span class="req">*</span></label>
+            <input type="text" placeholder="e.g. Finance, Operations">
+          </div>
+          <div class="field-group">
+            <label>Date Submitted <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Intended Posting Date <span class="req">*</span>
+              <span class="hint">Must be minimum 2 weeks from submission</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Position Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Proposed Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="Official title">
+          </div>
+          <div class="field-group">
+            <label>Employment Type <span class="req">*</span></label>
+            <select>
+              <option value="">Select type</option>
+              <option>Full-Time</option>
+              <option>Part-Time</option>
+              <option>Contract</option>
+              <option>Temporary</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>FLSA Classification <span class="req">*</span></label>
+            <select>
+              <option value="">Select classification</option>
+              <option>Exempt (Salaried)</option>
+              <option>Non-Exempt (Hourly)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Target Start Date</label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Reports To (Name &amp; Title) <span class="req">*</span></label>
+            <input type="text" placeholder="Direct manager">
+          </div>
+          <div class="field-group">
+            <label>Work Location / Arrangement <span class="req">*</span></label>
+            <select>
+              <option value="">Select</option>
+              <option>On-Site</option>
+              <option>Remote</option>
+              <option>Hybrid</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Position Type</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Is this a new or backfill position? <span class="req">*</span></label>
+            <select>
+              <option value="">Select</option>
+              <option>New Headcount</option>
+              <option>Backfill (departure)</option>
+              <option>Restructured Role</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>If backfill, name of departing employee</label>
+            <input type="text" placeholder="Name (if applicable)">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Budget &amp; Compensation</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid three">
+          <div class="field-group">
+            <label>Budget Source / Cost Center <span class="req">*</span></label>
+            <input type="text" placeholder="GL code or department">
+          </div>
+          <div class="field-group">
+            <label>Salary Range — Minimum ($)</label>
+            <input type="number" placeholder="0">
+          </div>
+          <div class="field-group">
+            <label>Salary Range — Maximum ($)</label>
+            <input type="number" placeholder="0">
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Is this position approved in the current headcount plan? <span class="req">*</span></label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes — included in approved headcount plan</option>
+              <option>No — requires exception approval</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>CFO Budget Confirmation Received?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes</option>
+              <option>No — pending</option>
+              <option>Not required (within existing budget)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Business Justification</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Business Justification <span class="req">*</span>
+              <span class="hint">Describe the operational need, impact of vacancy, and why this role is required now</span>
+            </label>
+            <textarea rows="5" placeholder="Explain the business case for this hire..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Key Responsibilities (top 5)</label>
+            <textarea rows="4" placeholder="1.&#10;2.&#10;3.&#10;4.&#10;5."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Required Qualifications</label>
+            <textarea rows="3" placeholder="Education, experience, certifications, skills..."></textarea>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">DEI Considerations</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Sourcing Strategy
+              <span class="hint">What channels will be used to ensure diverse candidate reach?</span>
+            </label>
+            <textarea rows="3" placeholder="e.g. LinkedIn, diversity job boards, employee referrals, professional associations..."></textarea>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <h4>Signatures &amp; Approvals</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Department Leader Signature &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CPO Approval &amp; Date</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.1 · Hiring &amp; Talent Acquisition</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">Submit to CPO →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- FORM 2 — COMPENSATION CHANGE REQUEST (CCR)   -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="form-panel" id="panel-ccr">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">💰</div>
+        <div class="form-card-header-text">
+          <h2>Compensation Change Request</h2>
+          <p>Submit minimum 10 business days before requested effective date. Retroactive increases prohibited without CEO approval.</p>
+        </div>
+        <div class="form-ref">CCR</div>
+      </div>
+      <div class="form-body">
+        <div class="notice-box">
+          <strong>SOP 2.2 — Compensation Changes:</strong> All pay changes require CPO approval. Changes exceeding $10,000 annually require CFO consultation. No retroactive increases without CEO approval. Leaders may not offer or approve pay outside salary bands.
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Requestor Information</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Requesting Leader Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Department <span class="req">*</span></label>
+            <input type="text" placeholder="Department name">
+          </div>
+          <div class="field-group">
+            <label>Date Submitted <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Requested Effective Date <span class="req">*</span>
+              <span class="hint">Must be minimum 10 business days from submission</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Employee Information</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Employee Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Employee ID / HRIS #</label>
+            <input type="text" placeholder="System ID">
+          </div>
+          <div class="field-group">
+            <label>Current Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="Current title">
+          </div>
+          <div class="field-group">
+            <label>FLSA Classification <span class="req">*</span></label>
+            <select>
+              <option value="">Select</option>
+              <option>Exempt (Salaried)</option>
+              <option>Non-Exempt (Hourly)</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Hire Date</label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Time in Current Role</label>
+            <input type="text" placeholder="e.g. 18 months">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Change Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Type of Compensation Change <span class="req">*</span></label>
+            <select>
+              <option value="">Select type</option>
+              <option>Off-Cycle Increase</option>
+              <option>Reclassification</option>
+              <option>Temporary Premium (max 90 days)</option>
+              <option>Equity Adjustment</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Rationale Category <span class="req">*</span></label>
+            <select>
+              <option value="">Select rationale</option>
+              <option>Market Correction</option>
+              <option>Retention Risk</option>
+              <option>Performance-Based</option>
+              <option>Internal Pay Equity</option>
+              <option>Role Scope Change</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Current Base Pay (Annual $) <span class="req">*</span></label>
+            <input type="number" placeholder="0">
+          </div>
+          <div class="field-group">
+            <label>Requested Pay (Annual $) <span class="req">*</span></label>
+            <input type="number" placeholder="0">
+          </div>
+          <div class="field-group">
+            <label>% Change <span class="req">*</span></label>
+            <input type="text" placeholder="Calculated automatically">
+          </div>
+          <div class="field-group">
+            <label>Current Salary Band</label>
+            <input type="text" placeholder="Band / Level">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">If Temporary Premium — Additional Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Premium Start Date</label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Premium End Date
+              <span class="hint">Maximum 90 days; must be renewed by CPO to continue</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Business Justification &amp; Supporting Data</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Detailed Business Justification <span class="req">*</span>
+              <span class="hint">Include market data, retention risk evidence, or performance data supporting the request</span>
+            </label>
+            <textarea rows="5" placeholder="Provide specific rationale with data..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Supporting Data / Market References</label>
+            <textarea rows="3" placeholder="Cite any market surveys, competing offers, or benchmarks..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Last Performance Rating</label>
+            <select>
+              <option value="">Select rating</option>
+              <option>4 — Exceptional</option>
+              <option>3 — Meets Expectations</option>
+              <option>2 — Needs Improvement</option>
+              <option>1 — Unsatisfactory</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <h4>Approvals Required</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Department Leader Signature &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CPO Approval &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CFO Sign-Off &amp; Date (if change &gt;$10K annually)</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CEO Approval &amp; Date (retroactive increases only)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.2 · Compensation Changes</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">Submit to CPO →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═════════════════════════════════════════ -->
+  <!-- FORM 3 — PROMOTION NOMINATION FORM (PNF)  -->
+  <!-- ═════════════════════════════════════════ -->
+  <div class="form-panel" id="panel-pnf">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">⬆️</div>
+        <div class="form-card-header-text">
+          <h2>Promotion Nomination Form</h2>
+          <p>Submit to CPO minimum 30 days before proposed effective date (45 days for VP+). Do not use the word "promotion" with the employee before CPO approval.</p>
+        </div>
+        <div class="form-ref">PNF</div>
+      </div>
+      <div class="form-body">
+        <div class="notice-box">
+          <strong>SOP 2.3 — Promotions:</strong> CPO approves all promotions. CEO is informed for VP+. Leaders may NOT promise or imply a promotion before CPO approval. Typical promotion increase is 10–20%; increases exceeding $15,000 annually require CPO + CFO sign-off.
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Requestor</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Nominating Leader <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Date Submitted <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Proposed Effective Date <span class="req">*</span>
+              <span class="hint">Min 30 days from submission; 45 days for VP+</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Employee Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Employee Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Employee ID / HRIS #</label>
+            <input type="text" placeholder="System ID">
+          </div>
+          <div class="field-group">
+            <label>Current Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="Current title">
+          </div>
+          <div class="field-group">
+            <label>Proposed Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="New title">
+          </div>
+          <div class="field-group">
+            <label>Hire Date <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Date in Current Role <span class="req">*</span>
+              <span class="hint">Minimum 12 months required; exceptions need CPO approval</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Eligibility Confirmation</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="checklist">
+          <label class="check-item"><input type="checkbox"><span>Employee has been in current role for minimum 12 months (or exception has been discussed with CPO)</span></label>
+          <label class="check-item"><input type="checkbox"><span>Current performance rating is Meets Expectations (3) or above</span></label>
+          <label class="check-item"><input type="checkbox"><span>No active corrective action within the prior 12 months</span></label>
+          <label class="check-item"><input type="checkbox"><span>Budget headroom exists in the target role's salary band</span></label>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Compensation</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Current Annual Salary ($) <span class="req">*</span></label>
+            <input type="number" placeholder="0">
+          </div>
+          <div class="field-group">
+            <label>Proposed Annual Salary ($)
+              <span class="hint">CPO will set final amount; provide recommendation</span>
+            </label>
+            <input type="number" placeholder="0">
+          </div>
+          <div class="field-group">
+            <label>Proposed % Increase
+              <span class="hint">Typically 10–20%; CPO determines final</span>
+            </label>
+            <input type="text" placeholder="%">
+          </div>
+          <div class="field-group">
+            <label>Current Salary Band / Level</label>
+            <input type="text" placeholder="Band / Level">
+          </div>
+          <div class="field-group">
+            <label>Target Salary Band / Level</label>
+            <input type="text" placeholder="Band / Level">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Business Justification &amp; Readiness Evidence</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Business Justification <span class="req">*</span>
+              <span class="hint">Why is this promotion warranted now? What operational need does it meet?</span>
+            </label>
+            <textarea rows="4" placeholder="Describe the business case..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Readiness Evidence — Specific Achievements <span class="req">*</span>
+              <span class="hint">Concrete examples demonstrating performance at the next level</span>
+            </label>
+            <textarea rows="4" placeholder="List specific accomplishments, projects, and results..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Competency Demonstration <span class="req">*</span>
+              <span class="hint">How has the employee already demonstrated the skills required at the proposed level?</span>
+            </label>
+            <textarea rows="4" placeholder="Describe specific behaviors and competencies observed..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Most Recent Performance Rating <span class="req">*</span></label>
+            <select>
+              <option value="">Select</option>
+              <option>4 — Exceptional</option>
+              <option>3 — Meets Expectations</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Organizational / Scope Change
+              <span class="hint">How will responsibilities change? Who will this person manage or influence?</span>
+            </label>
+            <textarea rows="3" placeholder="Describe change in scope, team, or organizational impact..."></textarea>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <h4>Approvals</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Nominating Leader &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CPO Approval &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CFO Sign-Off &amp; Date (if increase &gt;$15K)</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">CEO Notification (VP+ only)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.3 · Promotions</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">Submit to CPO →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- FORM 4 — 30-60-90 DAY ONBOARDING TEMPLATE   -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="form-panel" id="panel-onboard">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">🚀</div>
+        <div class="form-card-header-text">
+          <h2>30-60-90 Day Onboarding Plan</h2>
+          <p>Complete and submit to HR before the employee's start date. This plan sets expectations for the new hire's first 90 days.</p>
+        </div>
+        <div class="form-ref">ONB</div>
+      </div>
+      <div class="form-body">
+        <div class="section-divider">
+          <span class="section-divider-label">Employee &amp; Role Information</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>New Employee Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="Official title">
+          </div>
+          <div class="field-group">
+            <label>Department <span class="req">*</span></label>
+            <input type="text" placeholder="Department">
+          </div>
+          <div class="field-group">
+            <label>Start Date <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Hiring Manager <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Assigned Onboarding Buddy (if applicable)</label>
+            <input type="text" placeholder="Full name">
+          </div>
+        </div>
+
+        <!-- 30 DAYS -->
+        <div class="section-divider">
+          <span class="section-divider-label">Onboarding Phases</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <div class="timeline-section">
+          <div class="timeline-header">
+            <div class="timeline-badge" style="background:var(--navy);">30</div>
+            <div class="timeline-header-text">
+              <strong>Days 1–30: Learn &amp; Orient</strong>
+              <span>Focus: understanding the role, team, systems, and culture</span>
+            </div>
+          </div>
+          <div class="timeline-body">
+            <div class="form-grid full">
+              <div class="field-group">
+                <label>Key Learning Objectives (what should they know by Day 30?)</label>
+                <textarea rows="4" placeholder="1.&#10;2.&#10;3."></textarea>
+              </div>
+              <div class="field-group">
+                <label>Required System Access &amp; Training</label>
+                <textarea rows="3" placeholder="e.g. HRIS login, Slack, CRM onboarding, compliance training..."></textarea>
+              </div>
+              <div class="field-group">
+                <label>Key Relationships to Establish (stakeholders to meet)</label>
+                <textarea rows="3" placeholder="Names and context for each introductory meeting..."></textarea>
+              </div>
+              <div class="field-group">
+                <label>30-Day Check-In Focus &amp; Success Criteria</label>
+                <textarea rows="3" placeholder="What does success look like at 30 days?"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 60 DAYS -->
+        <div class="timeline-section">
+          <div class="timeline-header">
+            <div class="timeline-badge" style="background:var(--navy-light);">60</div>
+            <div class="timeline-header-text">
+              <strong>Days 31–60: Apply &amp; Contribute</strong>
+              <span>Focus: applying knowledge, owning initial deliverables, building relationships</span>
+            </div>
+          </div>
+          <div class="timeline-body">
+            <div class="form-grid full">
+              <div class="field-group">
+                <label>Key Projects or Deliverables to Own</label>
+                <textarea rows="4" placeholder="1.&#10;2.&#10;3."></textarea>
+              </div>
+              <div class="field-group">
+                <label>Performance Milestones (what should be independently completed?)</label>
+                <textarea rows="3" placeholder="Specific outcomes expected by Day 60..."></textarea>
+              </div>
+              <div class="field-group">
+                <label>60-Day Check-In Focus &amp; Success Criteria</label>
+                <textarea rows="3" placeholder="What does success look like at 60 days?"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 90 DAYS -->
+        <div class="timeline-section">
+          <div class="timeline-header">
+            <div class="timeline-badge" style="background:var(--gold); color:var(--navy);">90</div>
+            <div class="timeline-header-text">
+              <strong>Days 61–90: Perform &amp; Lead</strong>
+              <span>Focus: full independence, KPI readiness, cultural contribution</span>
+            </div>
+          </div>
+          <div class="timeline-body">
+            <div class="form-grid full">
+              <div class="field-group">
+                <label>Full Performance Expectations at 90 Days</label>
+                <textarea rows="4" placeholder="What does full ramp-up look like for this role?"></textarea>
+              </div>
+              <div class="field-group">
+                <label>Initial KPIs to Be Set (preview)</label>
+                <textarea rows="3" placeholder="First formal KPIs to be documented in HRIS..."></textarea>
+              </div>
+              <div class="field-group">
+                <label>90-Day Review Criteria &amp; Success Indicators</label>
+                <textarea rows="3" placeholder="How will success at 90 days be evaluated?"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Manager Commitments to New Employee</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Support &amp; Resources Provided by Manager</label>
+            <textarea rows="3" placeholder="What support, tools, and access will you provide to set this person up for success?"></textarea>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <h4>Acknowledgment</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Hiring Manager &amp; Date (submitted to HR before Day 1)</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">HR / CPO Received</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.1 Step 10 · Onboarding</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">Submit to HR →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- FORM 5 — KPI DOCUMENTATION TEMPLATE          -->
+  <!-- ════════════════════════════════════════════ -->
+  <div class="form-panel" id="panel-kpi">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">🎯</div>
+        <div class="form-card-header-text">
+          <h2>KPI Documentation Template</h2>
+          <p>Individual KPIs must be documented in HRIS and signed by both leader and employee by February 28 (or within 30 days of a new role or hire).</p>
+        </div>
+        <div class="form-ref">KPI</div>
+      </div>
+      <div class="form-body">
+        <div class="notice-box">
+          <strong>SOP 3.1 — KPI Setting:</strong> KPIs must be SMART. They must be reviewed with the employee collaboratively — not handed down. One-sided KPIs that were never discussed are not enforceable in a performance action.
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Employee &amp; Period</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Employee Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Job Title <span class="req">*</span></label>
+            <input type="text" placeholder="Current title">
+          </div>
+          <div class="field-group">
+            <label>Department <span class="req">*</span></label>
+            <input type="text" placeholder="Department">
+          </div>
+          <div class="field-group">
+            <label>Manager / Leader <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Performance Period <span class="req">*</span></label>
+            <input type="text" placeholder="e.g. Jan 1 – Dec 31, 2025">
+          </div>
+          <div class="field-group">
+            <label>Goal-Setting Conversation Date <span class="req">*</span>
+              <span class="hint">Must be documented</span>
+            </label>
+            <input type="date">
+          </div>
+        </div>
+
+        <!-- CATEGORY 1 -->
+        <div class="section-divider">
+          <span class="section-divider-label">Category 1 — Functional / Role-Specific Goals (50–60% weight)</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="kpi-row-header">
+          <span>KPI / Goal Description</span>
+          <span>Measure / Target</span>
+          <span>Due Date</span>
+          <span>Weight %</span>
+        </div>
+        <div id="kpi-functional">
+          <div class="kpi-row">
+            <textarea rows="2" placeholder="Describe the specific goal..."></textarea>
+            <input type="text" placeholder="e.g. 95% on-time">
+            <input type="date">
+            <input type="number" placeholder="%" min="0" max="100">
+          </div>
+          <div class="kpi-row">
+            <textarea rows="2" placeholder="Describe the specific goal..."></textarea>
+            <input type="text" placeholder="e.g. &lt;$50K budget variance">
+            <input type="date">
+            <input type="number" placeholder="%" min="0" max="100">
+          </div>
+          <div class="kpi-row">
+            <textarea rows="2" placeholder="Describe the specific goal..."></textarea>
+            <input type="text" placeholder="Measurable target">
+            <input type="date">
+            <input type="number" placeholder="%" min="0" max="100">
+          </div>
+        </div>
+        <button class="add-row-btn" onclick="addKpiRow('functional')">+ Add Functional Goal</button>
+
+        <!-- CATEGORY 2 -->
+        <div class="section-divider">
+          <span class="section-divider-label">Category 2 — Behavioral / Values Alignment (20–25% weight)</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div id="kpi-behavioral">
+          <div class="kpi-row">
+            <textarea rows="2" placeholder="e.g. Demonstrates cross-functional collaboration..."></textarea>
+            <input type="text" placeholder="How measured / observed">
+            <input type="date">
+            <input type="number" placeholder="%" min="0" max="100">
+          </div>
+          <div class="kpi-row">
+            <textarea rows="2" placeholder="e.g. Consistently meets communication standards..."></textarea>
+            <input type="text" placeholder="How measured / observed">
+            <input type="date">
+            <input type="number" placeholder="%" min="0" max="100">
+          </div>
+        </div>
+        <button class="add-row-btn" onclick="addKpiRow('behavioral')">+ Add Behavioral Goal</button>
+
+        <!-- CATEGORY 3 -->
+        <div class="section-divider">
+          <span class="section-divider-label">Category 3 — Development Goal (15–20% weight)</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Development Goal <span class="req">*</span>
+              <span class="hint">One specific skill or capability the employee is actively building this period</span>
+            </label>
+            <textarea rows="3" placeholder="Describe the skill/capability being developed..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>How Progress Will Be Demonstrated / Measured</label>
+            <textarea rows="3" placeholder="e.g. completes certification by Q3, leads one cross-functional project..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Resources / Support Provided by Leader</label>
+            <textarea rows="2" placeholder="e.g. training budget, mentorship, stretch assignment..."></textarea>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Weight Summary</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid three">
+          <div class="field-group">
+            <label>Total Functional Weight (%)</label>
+            <input type="number" placeholder="50–60%">
+          </div>
+          <div class="field-group">
+            <label>Total Behavioral Weight (%)</label>
+            <input type="number" placeholder="20–25%">
+          </div>
+          <div class="field-group">
+            <label>Development Weight (%)</label>
+            <input type="number" placeholder="15–20%">
+          </div>
+        </div>
+        <div class="notice-box" style="margin-top:16px;">Total weights must equal 100%.</div>
+
+        <div class="signature-block">
+          <h4>Joint Sign-Off (Both Signatures Required)</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Leader Signature &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Employee Signature &amp; Date (acknowledges discussion)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 3.1 · KPI Setting &amp; Goal Alignment</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">Save to HRIS →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- FORM 6 — EXIT INTERVIEW FORM            -->
+  <!-- ═══════════════════════════════════════ -->
+  <div class="form-panel" id="panel-exit">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">👋</div>
+        <div class="form-card-header-text">
+          <h2>Exit Interview Form</h2>
+          <p>Conducted by HR or CPO during the employee's final week. Responses are confidential and used for organizational improvement only.</p>
+        </div>
+        <div class="form-ref">EIF</div>
+      </div>
+      <div class="form-body">
+        <div class="section-divider">
+          <span class="section-divider-label">Employee &amp; Departure Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Employee Name</label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Job Title</label>
+            <input type="text" placeholder="Current title">
+          </div>
+          <div class="field-group">
+            <label>Department</label>
+            <input type="text" placeholder="Department">
+          </div>
+          <div class="field-group">
+            <label>Direct Manager</label>
+            <input type="text" placeholder="Manager name">
+          </div>
+          <div class="field-group">
+            <label>Original Hire Date</label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Last Day of Employment</label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Primary Reason for Leaving <span class="req">*</span></label>
+            <select>
+              <option value="">Select primary reason</option>
+              <option>New opportunity / career advancement</option>
+              <option>Compensation / benefits</option>
+              <option>Relationship with manager</option>
+              <option>Work-life balance</option>
+              <option>Lack of growth or development</option>
+              <option>Company culture / values misalignment</option>
+              <option>Relocation</option>
+              <option>Personal or family reasons</option>
+              <option>Returning to education</option>
+              <option>Prefer not to say</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Interviewer (HR / CPO)</label>
+            <input type="text" placeholder="Name of interviewer">
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Role &amp; Experience</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>What aspects of your role did you find most satisfying?</label>
+            <textarea rows="3" placeholder="Employee response..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>What aspects of your role were least satisfying or most challenging?</label>
+            <textarea rows="3" placeholder="Employee response..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Did you feel your skills and abilities were well-utilized in this role?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, fully</option>
+              <option>Somewhat</option>
+              <option>No, I felt underutilized</option>
+              <option>No, I felt overwhelmed or under-supported</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Did you feel you had the tools, resources, and support to do your job effectively?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, fully</option>
+              <option>Mostly yes</option>
+              <option>Somewhat</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Manager &amp; Team</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>How would you describe your working relationship with your direct manager?</label>
+            <div class="rating-group">
+              <input type="radio" class="rating-option" name="mgr-rating" id="mgr-5" value="5"><label for="mgr-5">⭐ Excellent</label>
+              <input type="radio" class="rating-option" name="mgr-rating" id="mgr-4" value="4"><label for="mgr-4">Good</label>
+              <input type="radio" class="rating-option" name="mgr-rating" id="mgr-3" value="3"><label for="mgr-3">Average</label>
+              <input type="radio" class="rating-option" name="mgr-rating" id="mgr-2" value="2"><label for="mgr-2">Poor</label>
+              <input type="radio" class="rating-option" name="mgr-rating" id="mgr-1" value="1"><label for="mgr-1">Very Poor</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Is there anything specific about your manager or team dynamic you would like to share?</label>
+            <textarea rows="3" placeholder="Employee response (confidential)..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Did you feel you received adequate feedback and recognition?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, regularly and meaningfully</option>
+              <option>Sometimes, but inconsistently</option>
+              <option>Rarely</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Compensation &amp; Benefits</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Was compensation a factor in your decision to leave?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes — primary factor</option>
+              <option>Yes — contributing factor</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Were benefits (health, PTO, other) meeting your needs?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, fully</option>
+              <option>Mostly</option>
+              <option>Some gaps</option>
+              <option>No</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Growth &amp; Development</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Did you feel there were adequate opportunities for growth and advancement at AMX?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, I saw a clear path</option>
+              <option>Somewhat — path was unclear</option>
+              <option>No — limited opportunities</option>
+              <option>Growth was available but not aligned with my goals</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Is there anything AMX could have done differently to retain you?</label>
+            <textarea rows="4" placeholder="Employee response (confidential)..."></textarea>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Culture &amp; Overall</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>How would you rate your overall experience at AMX Companies?</label>
+            <div class="rating-group">
+              <input type="radio" class="rating-option" name="overall-rating" id="ov-5" value="5"><label for="ov-5">⭐ Excellent</label>
+              <input type="radio" class="rating-option" name="overall-rating" id="ov-4" value="4"><label for="ov-4">Good</label>
+              <input type="radio" class="rating-option" name="overall-rating" id="ov-3" value="3"><label for="ov-3">Average</label>
+              <input type="radio" class="rating-option" name="overall-rating" id="ov-2" value="2"><label for="ov-2">Poor</label>
+              <input type="radio" class="rating-option" name="overall-rating" id="ov-1" value="1"><label for="ov-1">Very Poor</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Would you recommend AMX as an employer to others?</label>
+            <select>
+              <option value="">Select</option>
+              <option>Yes, without hesitation</option>
+              <option>Yes, with some caveats</option>
+              <option>Unsure</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Is there anything else you would like to share with the CPO or HR leadership?</label>
+            <textarea rows="4" placeholder="Any additional feedback, suggestions, or observations..."></textarea>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Interviewer Notes (HR / CPO Only)</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Interviewer Observations &amp; Key Themes</label>
+            <textarea rows="4" placeholder="Internal notes from the exit interview conversation..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Recommended Follow-Up Actions</label>
+            <textarea rows="3" placeholder="e.g. manager coaching, process changes, escalation..."></textarea>
+          </div>
+        </div>
+
+        <div class="signature-block">
+          <h4>Documentation</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">HR / CPO Interviewer &amp; Date</div>
+            </div>
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Date Filed to HRIS</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.4 · Voluntary Resignation &amp; Offboarding</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-primary">File to HRIS →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════ -->
+  <!-- FORM 7 — STRUCTURED INTERVIEW SCORECARD   -->
+  <!-- ══════════════════════════════════════════ -->
+  <div class="form-panel" id="panel-interview">
+    <div class="form-card">
+      <div class="form-card-header">
+        <div class="form-icon">🔍</div>
+        <div class="form-card-header-text">
+          <h2>Structured Interview Scorecard</h2>
+          <p>Complete immediately after each interview. Enter notes in ATS. Minimum 2 interviewers required per finalist. No prohibited questions.</p>
+        </div>
+        <div class="form-ref">INT</div>
+      </div>
+      <div class="form-body">
+        <div class="notice-box">
+          <strong>SOP 2.1 — Interviews:</strong> Use structured, pre-approved questions only. No prohibited questions (age, family status, religion, national origin). Record notes in the ATS immediately after each interview. No screening based on name, address, or graduation year.
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Interview Details</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid">
+          <div class="field-group">
+            <label>Candidate Name <span class="req">*</span></label>
+            <input type="text" placeholder="Full name">
+          </div>
+          <div class="field-group">
+            <label>Position Applied For <span class="req">*</span></label>
+            <input type="text" placeholder="Job title">
+          </div>
+          <div class="field-group">
+            <label>Interview Date <span class="req">*</span></label>
+            <input type="date">
+          </div>
+          <div class="field-group">
+            <label>Interview Format</label>
+            <select>
+              <option value="">Select</option>
+              <option>In-Person</option>
+              <option>Video (Virtual)</option>
+              <option>Phone Screen</option>
+              <option>Panel</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>Interviewer Name <span class="req">*</span></label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="field-group">
+            <label>Interviewer Role / Department</label>
+            <input type="text" placeholder="Your title and department">
+          </div>
+          <div class="field-group">
+            <label>Interview Round</label>
+            <select>
+              <option value="">Select</option>
+              <option>Phone / Initial Screen</option>
+              <option>First Interview</option>
+              <option>Second Interview</option>
+              <option>Final Round</option>
+              <option>Skills Assessment</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Competency Scoring</span>
+          <div class="section-divider-line"></div>
+        </div>
+
+        <style>
+          .competency-block { border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 16px; background: var(--input-bg); }
+          .competency-title { font-size: 13px; font-weight: 700; color: var(--navy); margin-bottom: 12px; letter-spacing: 0.3px; }
+          .competency-q { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; font-style: italic; }
+          .competency-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+          @media (max-width: 600px) { .competency-row { grid-template-columns: 1fr; } }
+          .score-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+          .score-pill { display: none; }
+          .score-pill + label {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--text-muted);
+            background: white;
+            transition: all 0.15s;
+            letter-spacing: 0;
+            text-transform: none;
+          }
+          .score-pill:checked + label { background: var(--navy); border-color: var(--navy); color: white; }
+        </style>
+
+        <!-- Competency 1 -->
+        <div class="competency-block">
+          <div class="competency-title">1. Role-Specific Knowledge &amp; Technical Competency</div>
+          <div class="competency-q">"Walk me through how you've approached [key job function] in a previous role. What was the outcome?"</div>
+          <div class="competency-row">
+            <div class="field-group">
+              <label>Interview Notes</label>
+              <textarea rows="3" placeholder="Specific examples, STAR details, observations..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Score</label>
+              <div class="score-pills">
+                <input type="radio" class="score-pill" name="s1" id="s1-4"><label for="s1-4">4 — Exceptional</label>
+                <input type="radio" class="score-pill" name="s1" id="s1-3"><label for="s1-3">3 — Strong</label>
+                <input type="radio" class="score-pill" name="s1" id="s1-2"><label for="s1-2">2 — Adequate</label>
+                <input type="radio" class="score-pill" name="s1" id="s1-1"><label for="s1-1">1 — Weak</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competency 2 -->
+        <div class="competency-block">
+          <div class="competency-title">2. Problem-Solving &amp; Critical Thinking</div>
+          <div class="competency-q">"Describe a time when you faced a significant challenge or obstacle in your work. How did you analyze the situation and what steps did you take?"</div>
+          <div class="competency-row">
+            <div class="field-group">
+              <label>Interview Notes</label>
+              <textarea rows="3" placeholder="Specific examples, STAR details, observations..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Score</label>
+              <div class="score-pills">
+                <input type="radio" class="score-pill" name="s2" id="s2-4"><label for="s2-4">4 — Exceptional</label>
+                <input type="radio" class="score-pill" name="s2" id="s2-3"><label for="s2-3">3 — Strong</label>
+                <input type="radio" class="score-pill" name="s2" id="s2-2"><label for="s2-2">2 — Adequate</label>
+                <input type="radio" class="score-pill" name="s2" id="s2-1"><label for="s2-1">1 — Weak</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competency 3 -->
+        <div class="competency-block">
+          <div class="competency-title">3. Collaboration &amp; Communication</div>
+          <div class="competency-q">"Tell me about a time you worked with a cross-functional team or a difficult stakeholder. How did you manage the relationship and what was the outcome?"</div>
+          <div class="competency-row">
+            <div class="field-group">
+              <label>Interview Notes</label>
+              <textarea rows="3" placeholder="Specific examples, STAR details, observations..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Score</label>
+              <div class="score-pills">
+                <input type="radio" class="score-pill" name="s3" id="s3-4"><label for="s3-4">4 — Exceptional</label>
+                <input type="radio" class="score-pill" name="s3" id="s3-3"><label for="s3-3">3 — Strong</label>
+                <input type="radio" class="score-pill" name="s3" id="s3-2"><label for="s3-2">2 — Adequate</label>
+                <input type="radio" class="score-pill" name="s3" id="s3-1"><label for="s3-1">1 — Weak</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competency 4 -->
+        <div class="competency-block">
+          <div class="competency-title">4. Accountability &amp; Results Orientation</div>
+          <div class="competency-q">"Give me an example of a goal or project where you fell short. What happened, and what did you do about it?"</div>
+          <div class="competency-row">
+            <div class="field-group">
+              <label>Interview Notes</label>
+              <textarea rows="3" placeholder="Specific examples, STAR details, observations..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Score</label>
+              <div class="score-pills">
+                <input type="radio" class="score-pill" name="s4" id="s4-4"><label for="s4-4">4 — Exceptional</label>
+                <input type="radio" class="score-pill" name="s4" id="s4-3"><label for="s4-3">3 — Strong</label>
+                <input type="radio" class="score-pill" name="s4" id="s4-2"><label for="s4-2">2 — Adequate</label>
+                <input type="radio" class="score-pill" name="s4" id="s4-1"><label for="s4-1">1 — Weak</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competency 5 -->
+        <div class="competency-block">
+          <div class="competency-title">5. Cultural &amp; Values Alignment</div>
+          <div class="competency-q">"What kind of work environment brings out your best performance? What do you look for in a company's culture?"</div>
+          <div class="competency-row">
+            <div class="field-group">
+              <label>Interview Notes</label>
+              <textarea rows="3" placeholder="Specific examples, STAR details, observations..."></textarea>
+            </div>
+            <div class="field-group">
+              <label>Score</label>
+              <div class="score-pills">
+                <input type="radio" class="score-pill" name="s5" id="s5-4"><label for="s5-4">4 — Exceptional</label>
+                <input type="radio" class="score-pill" name="s5" id="s5-3"><label for="s5-3">3 — Strong</label>
+                <input type="radio" class="score-pill" name="s5" id="s5-2"><label for="s5-2">2 — Adequate</label>
+                <input type="radio" class="score-pill" name="s5" id="s5-1"><label for="s5-1">1 — Weak</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-divider">
+          <span class="section-divider-label">Overall Assessment</span>
+          <div class="section-divider-line"></div>
+        </div>
+        <div class="form-grid full">
+          <div class="field-group">
+            <label>Overall Recommendation <span class="req">*</span></label>
+            <div class="rating-group">
+              <input type="radio" class="rating-option" name="rec" id="rec-strong"><label for="rec-strong">✅ Strong Hire</label>
+              <input type="radio" class="rating-option" name="rec" id="rec-hire"><label for="rec-hire">👍 Hire</label>
+              <input type="radio" class="rating-option" name="rec" id="rec-neutral"><label for="rec-neutral">⚖️ Neutral</label>
+              <input type="radio" class="rating-option" name="rec" id="rec-no"><label for="rec-no">❌ No Hire</label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Strengths Observed</label>
+            <textarea rows="3" placeholder="Key candidate strengths relevant to the role..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Areas of Concern or Development Needs</label>
+            <textarea rows="3" placeholder="Any gaps, risks, or areas to probe in further rounds..."></textarea>
+          </div>
+          <div class="field-group">
+            <label>Additional Notes for Hiring Committee</label>
+            <textarea rows="3" placeholder="Anything else the team should know before making a decision..."></textarea>
+          </div>
+        </div>
+
+        <div class="notice-box">
+          <strong>Prohibited Topics Reminder:</strong> Do not ask or record observations about age, family status, marital status, religion, national origin, disability, pregnancy, or any other protected characteristic. If the candidate volunteered this information, do not document it.
+        </div>
+
+        <div class="signature-block">
+          <h4>Interviewer Certification</h4>
+          <div class="sig-grid">
+            <div>
+              <div class="sig-line"></div>
+              <div class="sig-label">Interviewer Signature &amp; Date (enter in ATS immediately after interview)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-actions">
+        <div class="actions-left">SOP Reference: 2.1 Step 6 · Structured Interviews</div>
+        <div class="actions-right">
+          <button class="btn btn-secondary" onclick="window.print()">🖨 Print</button>
+          <button class="btn btn-gold">Submit to ATS →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<script>
+  function showForm(id) {
+    document.querySelectorAll('.form-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 200, behavior: 'smooth' });
+  }
+
+  function addKpiRow(category) {
+    const container = document.getElementById('kpi-' + category);
+    const row = document.createElement('div');
+    row.className = 'kpi-row';
+    row.innerHTML = `
+      <textarea rows="2" placeholder="Describe the specific goal..."></textarea>
+      <input type="text" placeholder="Measurable target">
+      <input type="date">
+      <input type="number" placeholder="%" min="0" max="100">
+    `;
+    container.appendChild(row);
+  }
+</script>
+</body>
+</html>

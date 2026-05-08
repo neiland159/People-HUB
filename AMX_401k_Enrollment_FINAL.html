@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AMX 401(k) Retirement Plan — Enroll with Principal</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── OH HAPPY DAY PALETTE ── */
+:root{
+  /* Neutrals */
+  --warm-gray:#c1c0bc;
+  --silver:#b5b6ab;
+  --cream:#f3ecdd;
+  --parchment:#f0dbd3;
+  --warm-cream:#f6e5e1;
+  --off-white:#f6f6f4;
+
+  /* Sage / Green family */
+  --sage-pale:#e5eac9;
+  --sage:#d0d4af;
+  --sage-mid:#a8ac82;
+  --olive:#7a7f5a;
+  --olive-dark:#636647;
+
+  /* Blush / Rose family */
+  --blush-pale:#f0d2d3;
+  --blush:#ecb7b3;
+  --dusty-rose:#f2b4bf;
+  --mauve:#ceaab0;
+
+  /* Terracotta / Peach family */
+  --peach-pale:#f0dbd3;
+  --peach:#e09773;
+  --terracotta:#d0a38f;
+  --terra-deep:#dab19c;
+  --terra-dark:#b57558;
+
+  /* Gold / Honey family */
+  --gold-pale:#ead9c8;
+  --gold:#c0aa88;
+  --honey:#c49d5c;
+
+  /* Lavender / Plum family */
+  --lavender-pale:#e7dedf;
+  --lavender:#dbc2e3;
+  --purple:#c4a0ce;
+  --plum:#9a7aa1;
+
+  /* Text / dark tones */
+  --ink:#3d3530;
+  --brown:#6b4f3a;
+  --warm-brown:#8c6149;
+  --text-muted:#9c8c82;
+  --border:#dac8b3;
+  --white:#ffffff;
+
+  /* Shadows */
+  --shadow-sm:0 2px 12px rgba(61,53,48,.07);
+  --shadow-md:0 8px 32px rgba(61,53,48,.11);
+  --shadow-lg:0 20px 60px rgba(61,53,48,.15);
+  --r:16px;--rs:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--sage-pale)}::-webkit-scrollbar-thumb{background:var(--sage-mid);border-radius:3px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:62px;background:rgba(61,53,48,.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(192,170,136,.2);display:flex;align-items:center;padding:0 40px;gap:24px}
+.nav-brand{display:flex;align-items:center;gap:12px;text-decoration:none;flex-shrink:0}
+.nav-logo-box{width:36px;height:36px;background:var(--peach);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:17px;color:var(--ink)}
+.nav-wordmark{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;color:var(--white)}
+.nav-wordmark em{color:var(--gold-pale);font-style:normal}
+.nav-sub{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:.5px;margin-left:4px}
+.nav-links{display:flex;gap:2px;margin-left:auto}
+.nav-links a{padding:7px 14px;color:rgba(255,255,255,.55);font-size:13px;font-weight:500;border-radius:7px;cursor:pointer;transition:all .2s;text-decoration:none}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-btn{padding:9px 20px;background:var(--peach);color:var(--ink);font-size:13px;font-weight:700;border-radius:8px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;margin-left:10px}
+.nav-btn:hover{background:var(--terra-deep);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{background:var(--ink);padding-top:62px;position:relative;overflow:hidden;min-height:92vh;display:flex;flex-direction:column}
+.hero-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 50% 70% at 80% 20%,rgba(224,151,115,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 40% at 15% 80%,rgba(192,170,136,.1) 0%,transparent 55%),
+    radial-gradient(ellipse 80% 40% at 50% 110%,rgba(30,20,15,.8) 0%,transparent 70%)}
+.hero-texture{position:absolute;inset:0;opacity:.03;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,1) 0,rgba(255,255,255,1) 1px,transparent 0,transparent 50%);background-size:20px 20px}
+.hero-inner{position:relative;z-index:1;flex:1;max-width:1360px;margin:0 auto;width:100%;padding:72px 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.hero-eyebrow{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--peach);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--peach)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,6vw,82px);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold-pale)}
+.hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.6);line-height:1.72;max-width:440px;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-hero{padding:14px 30px;background:var(--peach);color:var(--ink);font-family:'Outfit',sans-serif;font-size:14px;font-weight:700;border-radius:11px;border:none;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
+.btn-hero:hover{background:var(--terra-deep);transform:translateY(-2px);box-shadow:0 8px 32px rgba(224,151,115,.4)}
+.btn-ghost{padding:14px 30px;background:rgba(255,255,255,.07);color:var(--white);font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;border-radius:11px;border:1px solid rgba(255,255,255,.15);cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block}
+.btn-ghost:hover{background:rgba(255,255,255,.13)}
+
+/* Hero right — match card */
+.match-card{background:rgba(255,255,255,.06);border:1px solid rgba(192,170,136,.2);border-radius:var(--r);padding:32px;backdrop-filter:blur(10px)}
+.match-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--peach);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.match-label::before,.match-label::after{content:'★';font-size:10px}
+.match-headline{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--gold-pale);line-height:1;margin-bottom:4px}
+.match-sub{font-size:14px;color:rgba(255,255,255,.6);margin-bottom:20px}
+.match-callout{background:rgba(224,151,115,.12);border:1px solid rgba(224,151,115,.25);border-radius:8px;padding:14px 16px;font-size:13px;color:var(--gold-pale);font-weight:500;margin-bottom:24px}
+.match-example-title{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.match-example-table{width:100%;border-collapse:collapse}
+.match-example-table th{font-size:11px;font-weight:600;color:rgba(255,255,255,.4);padding:6px 0;text-align:right;border-bottom:1px solid rgba(255,255,255,.08)}
+.match-example-table th:first-child{text-align:left}
+.match-example-table td{padding:8px 0;font-size:13px;color:rgba(255,255,255,.75);text-align:right;border-bottom:1px solid rgba(255,255,255,.05)}
+.match-example-table td:first-child{text-align:left;color:rgba(255,255,255,.5)}
+.match-example-table td.good{color:var(--peach);font-weight:600}
+.vesting-preview{margin-top:20px;padding-top:18px;border-top:1px solid rgba(255,255,255,.08)}
+.vesting-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+.vesting-bars{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.vesting-bar-item{text-align:center}
+.vesting-bar-track{height:48px;background:rgba(255,255,255,.06);border-radius:6px;position:relative;overflow:hidden;margin-bottom:4px}
+.vesting-bar-fill{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,var(--peach),var(--terra-deep));border-radius:6px;transition:height .5s ease}
+.vesting-bar-pct{font-size:11px;font-weight:700;color:var(--white)}
+.vesting-bar-year{font-size:10px;color:rgba(255,255,255,.35)}
+
+/* Quick nav bar */
+.quicknav{background:rgba(61,53,48,.95);border-bottom:2px solid var(--peach)}
+.quicknav-inner{max-width:1360px;margin:0 auto;display:flex;overflow-x:auto}
+.quicknav-inner::-webkit-scrollbar{height:0}
+.qn{padding:14px 22px;color:rgba(255,255,255,.5);font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;border:none;background:none;border-bottom:2px solid transparent;transition:all .2s;text-decoration:none;display:block;margin-bottom:-2px}
+.qn:hover{color:rgba(255,255,255,.85)}
+.qn.active{color:var(--white);border-bottom-color:var(--peach)}
+
+/* ── SECTION ── */
+.sec{padding:72px 48px}
+.sec-inner{max-width:1360px;margin:0 auto}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;margin-bottom:10px}
+.sec-desc{font-size:15px;line-height:1.65;max-width:560px;margin-bottom:36px}
+.bg-cream{background:var(--cream)}
+.bg-parchment{background:var(--parchment)}
+.bg-sage{background:var(--sage-pale)}
+.bg-blush{background:var(--blush-pale)}
+.bg-warm{background:var(--warm-cream)}
+.bg-ink{background:var(--ink)}
+.bg-white{background:var(--white)}
+
+/* ── CARDS ── */
+.card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--shadow-sm);overflow:hidden;transition:all .3s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.card-stripe{height:5px}
+.card-body{padding:26px}
+
+/* ── ELIGIBILITY STEPS ── */
+.elig-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.elig-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:24px 20px;box-shadow:var(--shadow-sm);position:relative}
+.elig-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:14px}
+.elig-card h4{font-size:15px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.elig-card p{font-size:13px;color:var(--text-muted);line-height:1.6}
+
+/* ── ENROLL STEPS ── */
+.enroll-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.enroll-step{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:28px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
+.enroll-step::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.enroll-step:nth-child(1)::before{background:var(--peach)}
+.enroll-step:nth-child(2)::before{background:var(--sage-mid)}
+.enroll-step:nth-child(3)::before{background:var(--lavender)}
+.enroll-step-icon{font-size:32px;margin-bottom:14px;display:block}
+.enroll-step h4{font-size:16px;font-weight:600;color:var(--ink);margin-bottom:8px}
+.enroll-step p{font-size:13px;color:var(--text-muted);line-height:1.65}
+.enroll-step ul{font-size:13px;color:var(--text-muted);line-height:1.65;list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.enroll-step ul li::before{content:'→ ';color:var(--peach);font-weight:600}
+
+/* ── CONTRIBUTION LIMITS ── */
+.limits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.limit-card{border-radius:var(--r);padding:28px;text-align:center;position:relative;overflow:hidden}
+.limit-card::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;opacity:.15}
+.limit-card-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px}
+.limit-card-val{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;line-height:1;margin-bottom:6px}
+.limit-card-sub{font-size:13px;opacity:.7}
+
+/* ── MATCH CALCULATOR ── */
+.calc-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--shadow-md);overflow:hidden}
+.calc-head{background:var(--ink);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.calc-head h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--white)}
+.calc-head p{font-size:13px;color:rgba(255,255,255,.5);margin-top:4px}
+.calc-body{padding:32px}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.field-group{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.field-label{font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--ink)}
+.field-input{padding:12px 16px;border:1px solid var(--border);border-radius:8px;font-family:'Outfit',sans-serif;font-size:16px;font-weight:600;color:var(--ink);background:var(--cream);outline:none;transition:border-color .2s}
+.field-input:focus{border-color:var(--peach);box-shadow:0 0 0 3px rgba(224,151,115,.12)}
+.range-input{width:100%;accent-color:var(--peach);height:6px;cursor:pointer}
+.range-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--text-muted);margin-top:4px}
+.calc-results{background:var(--sage-pale);border-radius:var(--rs);padding:24px;border:1px solid var(--sage)}
+.calc-result-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--sage)}
+.calc-result-item:last-child{border-bottom:none}
+.calc-result-label{font-size:13px;color:var(--ink)}
+.calc-result-val{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700}
+.calc-result-val.primary{color:var(--olive-dark)}
+.calc-result-val.accent{color:var(--terra-dark)}
+.calc-result-val.total{color:var(--ink);font-size:30px}
+.calc-note{font-size:12px;color:var(--text-muted);margin-top:12px;line-height:1.5;font-style:italic}
+.max-tip{background:var(--blush-pale);border:1px solid var(--blush);border-radius:8px;padding:12px 14px;font-size:12px;color:var(--ink);margin-top:14px;line-height:1.5}
+.max-tip strong{color:var(--terra-dark)}
+
+/* ── INVESTOR QUIZ ── */
+.quiz-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--shadow-md);overflow:hidden}
+.quiz-head{background:linear-gradient(135deg,var(--ink) 0%,var(--brown) 100%);padding:32px;display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.quiz-head h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:6px}
+.quiz-head p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.5}
+.quiz-score-display{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--rs);padding:16px 20px;text-align:center;flex-shrink:0;min-width:110px}
+.quiz-score-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold-pale);display:block;line-height:1}
+.quiz-score-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-top:3px;display:block}
+.quiz-body{padding:28px}
+.quiz-q{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.quiz-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.quiz-q-text{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:12px}
+.quiz-options{display:flex;flex-direction:column;gap:8px}
+.quiz-option{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;border:1px solid var(--border);border-radius:8px;cursor:pointer;transition:all .18s;user-select:none}
+.quiz-option:hover{border-color:var(--peach);background:var(--warm-cream)}
+.quiz-option.selected{background:var(--peach);border-color:var(--terra-dark);color:var(--ink)}
+.quiz-option-label{font-size:13px}
+.quiz-option-pts{font-size:12px;font-weight:700;color:var(--text-muted)}
+.quiz-option.selected .quiz-option-pts{color:var(--ink)}
+.quiz-footer{padding:24px 28px;background:var(--sage-pale);border-top:1px solid var(--sage);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.quiz-profile-result{display:none;padding:20px 28px;background:var(--blush-pale);border-top:1px solid var(--blush)}
+.quiz-profile-result.show{display:block}
+.profile-badge{display:inline-flex;align-items:center;gap:10px;margin-bottom:12px}
+.profile-dot{width:20px;height:20px;border-radius:50%}
+.profile-name{font-size:18px;font-weight:700;color:var(--ink)}
+.profile-desc{font-size:14px;color:var(--text-muted);line-height:1.65}
+
+/* ── PROFILES ── */
+.profiles-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.profile-card{border-radius:var(--r);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:all .3s}
+.profile-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.profile-card-top{padding:20px 16px;text-align:center}
+.profile-card-icon{font-size:28px;margin-bottom:8px;display:block}
+.profile-card h4{font-size:13px;font-weight:700;margin-bottom:4px}
+.profile-card-score{font-size:11px;color:var(--text-muted)}
+.profile-donut{width:80px;height:80px;margin:12px auto;position:relative}
+.profile-card-body{padding:12px 16px 16px;background:rgba(255,255,255,.6)}
+.profile-card-body p{font-size:12px;color:var(--text-muted);line-height:1.55}
+.alloc-bar{display:flex;height:8px;border-radius:100px;overflow:hidden;margin:10px 0 6px;gap:2px}
+.alloc-segment{height:100%;border-radius:100px;transition:flex .3s}
+.alloc-legend{display:flex;flex-wrap:wrap;gap:6px}
+.alloc-legend-item{display:flex;align-items:center;gap:4px;font-size:10px;color:var(--text-muted)}
+.alloc-dot{width:8px;height:8px;border-radius:50%}
+
+/* ── DEFAULT FUND TABLE ── */
+.fund-table{width:100%;border-collapse:collapse}
+.fund-table th{background:var(--sage-pale);padding:10px 14px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--olive-dark);text-align:left;border-bottom:1px solid var(--sage)}
+.fund-table td{padding:11px 14px;font-size:13px;color:var(--ink);border-bottom:1px solid var(--border)}
+.fund-table tr:hover td{background:var(--warm-cream)}
+.fund-table .sect-row td{background:var(--parchment);font-weight:700;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--brown);padding:7px 14px}
+
+/* ── HOW TO ACCESS ── */
+.access-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.access-card{background:var(--white);border-radius:var(--r);border:1px solid var(--border);padding:24px 20px;text-align:center;box-shadow:var(--shadow-sm);cursor:pointer;transition:all .3s}
+.access-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);border-color:var(--peach)}
+.access-icon{font-size:36px;margin-bottom:12px;display:block}
+.access-card h4{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:6px}
+.access-card p{font-size:12px;color:var(--text-muted);line-height:1.55}
+.access-card .access-action{display:inline-block;margin-top:12px;font-size:12px;font-weight:700;color:var(--terra-dark);text-decoration:none;border-bottom:1px solid var(--terra-deep)}
+
+/* ── CONTACT ── */
+.contact-strip{background:linear-gradient(135deg,var(--ink) 0%,var(--brown) 100%);padding:48px;border-radius:var(--r);display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-top:32px}
+.contact-strip h3{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:8px}
+.contact-strip p{font-size:14px;color:rgba(255,255,255,.55);line-height:1.65}
+.contact-items{display:flex;flex-direction:column;gap:10px}
+.contact-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:8px;text-decoration:none;transition:background .2s}
+.contact-item:hover{background:rgba(255,255,255,.1)}
+.contact-item-icon{font-size:18px;flex-shrink:0}
+.contact-item-text{display:flex;flex-direction:column}
+.contact-item-label{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.35)}
+.contact-item-val{font-size:14px;font-weight:600;color:var(--white)}
+
+/* ── FEES TABLE ── */
+.fees-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.fee-card{background:var(--white);border-radius:var(--rs);border:1px solid var(--border);padding:20px;box-shadow:var(--shadow-sm)}
+.fee-card h4{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.fee-row{display:flex;justify-content:space-between;padding:7px 0;font-size:13px;border-bottom:1px solid var(--border)}
+.fee-row:last-child{border-bottom:none}
+.fee-row-label{color:var(--text-muted)}
+.fee-row-val{font-weight:600;color:var(--ink)}
+
+/* ── FOOTER ── */
+.footer{background:var(--ink);padding:48px 48px 32px}
+.footer-inner{max-width:1360px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px}
+.footer-brand-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--white);margin-bottom:6px}
+.footer-brand-name em{color:var(--gold-pale);font-style:normal}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,.35);line-height:1.65;margin-top:8px;max-width:260px}
+.footer-col h5{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--peach);margin-bottom:14px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .18s}
+.footer-col ul li a:hover{color:rgba(255,255,255,.75)}
+.footer-bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,.07);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.footer-bottom p{font-size:11px;color:rgba(255,255,255,.2);line-height:1.65;max-width:700px}
+
+/* Responsive */
+@media(max-width:1060px){.profiles-grid{grid-template-columns:repeat(3,1fr)}.elig-grid,.access-grid{grid-template-columns:repeat(2,1fr)}.hero-inner,.calc-grid{grid-template-columns:1fr}.match-card{display:none}}
+@media(max-width:720px){.sec{padding:48px 20px}.nav{padding:0 20px}.limits-grid,.enroll-steps,.fees-grid,.footer-grid{grid-template-columns:1fr}.profiles-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="https://amxtrucking.sharepoint.com/sites/AMXCompaniesPeopleResources/Shared%20Documents/People%20Hub/AMX_People_Dashboard%20(1).html" target="_blank" class="nav-brand">
+    <div class="nav-logo-box">A</div>
+    <div class="nav-wordmark">AMX <em>401(k)</em></div>
+    <div class="nav-sub">Retirement Plan</div>
+  </a>
+  <div class="nav-links">
+    <a href="#eligibility">Eligibility</a>
+    <a href="#enroll">How to Enroll</a>
+    <a href="#calculator">Match Calculator</a>
+    <a href="#quiz">Investor Quiz</a>
+    <a href="#funds">Investments</a>
+    <a href="#fees">Fees</a>
+  </div>
+  <a href="https://principal.com/Welcome" target="_blank" class="nav-btn">Enroll at Principal →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Alabama Motor Express, Inc. · Principal Financial Group</div>
+      <h1>Start Saving<br>for <em>Retirement</em><br>Today.</h1>
+      <p class="hero-sub">Your employer matches your contributions — that's free money toward your future. Enroll in just a few steps through Principal. Plan ID: 6-36521.</p>
+      <div class="hero-actions">
+        <a href="https://principal.com/Welcome" target="_blank" class="btn-hero">Enroll at principal.com →</a>
+        <a href="#calculator" class="btn-ghost">See My Match ↓</a>
+      </div>
+      <div style="margin-top:36px;display:flex;gap:24px;flex-wrap:wrap">
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 20px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold-pale);line-height:1">50%</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px">Match Rate</div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 20px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold-pale);line-height:1">6%</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px">Contribute to Get Max Match</div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:14px 20px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--gold-pale);line-height:1">3%</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px">Free from AMX</div>
+        </div>
+        <div style="background:rgba(224,151,115,.1);border:1px solid rgba(224,151,115,.25);border-radius:8px;padding:14px 20px;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--peach);line-height:1">$24,500</div>
+          <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:3px">2026 Contribution Limit</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Match card -->
+    <div class="match-card">
+      <div class="match-label">Employer Match</div>
+      <div class="match-headline">50% Match<br>on First 6%</div>
+      <div class="match-sub">Contribute at least 6% to get the full match</div>
+      <div class="match-callout">= 3.0% FREE from your employer every year</div>
+      <div class="match-example-title">Match Examples</div>
+      <table class="match-example-table">
+        <thead><tr><th>Annual Salary</th><th>Your 6%</th><th>AMX Adds</th></tr></thead>
+        <tbody>
+          <tr><td>$50,000</td><td>$3,000</td><td class="good">$1,500</td></tr>
+          <tr><td>$70,000</td><td>$4,200</td><td class="good">$2,100</td></tr>
+          <tr><td>$100,000</td><td>$6,000</td><td class="good">$3,000</td></tr>
+        </tbody>
+      </table>
+      <div class="vesting-preview">
+        <div class="vesting-label">Employer Match Vesting Schedule</div>
+        <div class="vesting-bars">
+          <div class="vesting-bar-item">
+            <div class="vesting-bar-track"><div class="vesting-bar-fill" style="height:0%"></div></div>
+            <div class="vesting-bar-pct">0%</div>
+            <div class="vesting-bar-year">Yr 1</div>
+          </div>
+          <div class="vesting-bar-item">
+            <div class="vesting-bar-track"><div class="vesting-bar-fill" style="height:25%"></div></div>
+            <div class="vesting-bar-pct">25%</div>
+            <div class="vesting-bar-year">Yr 2</div>
+          </div>
+          <div class="vesting-bar-item">
+            <div class="vesting-bar-track"><div class="vesting-bar-fill" style="height:50%"></div></div>
+            <div class="vesting-bar-pct">50%</div>
+            <div class="vesting-bar-year">Yr 3</div>
+          </div>
+          <div class="vesting-bar-item">
+            <div class="vesting-bar-track"><div class="vesting-bar-fill" style="height:75%"></div></div>
+            <div class="vesting-bar-pct">75%</div>
+            <div class="vesting-bar-year">Yr 4</div>
+          </div>
+          <div class="vesting-bar-item">
+            <div class="vesting-bar-track"><div class="vesting-bar-fill" style="height:100%"></div></div>
+            <div class="vesting-bar-pct">100%</div>
+            <div class="vesting-bar-year">Yr 5</div>
+          </div>
+        </div>
+        <div style="font-size:11px;color:rgba(255,255,255,.3);margin-top:8px;font-style:italic">Your own contributions & rollovers are 100% vested immediately.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick nav -->
+  <div class="quicknav">
+    <div class="quicknav-inner">
+      <a class="qn active" href="#eligibility">Eligibility</a>
+      <a class="qn" href="#enroll">How to Enroll</a>
+      <a class="qn" href="#limits">2026 Limits</a>
+      <a class="qn" href="#calculator">Match Calculator</a>
+      <a class="qn" href="#quiz">Investor Quiz</a>
+      <a class="qn" href="#profiles">Investor Profiles</a>
+      <a class="qn" href="#funds">Default Investments</a>
+      <a class="qn" href="#fees">Fees & Expenses</a>
+      <a class="qn" href="#contacts">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ELIGIBILITY -->
+<section class="sec bg-cream" id="eligibility">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Getting Started</div>
+    <div class="sec-title" style="color:var(--ink)">Eligibility & <em style="color:var(--warm-brown)">Plan Details</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">The AMX 401(k) is administered through Principal Financial Group. Plan ID: 6-36521. Eligibility begins after 6 months of continuous employment at age 21+.</p>
+    <div class="elig-grid">
+      <div class="elig-card">
+        <div class="elig-num" style="background:var(--blush-pale);color:var(--terra-dark)">1</div>
+        <h4>Eligibility Requirements</h4>
+        <p>Age 21 and 6 months of consecutive employment (or credited with 1 year / 1,000 hours). Must be a full-time employee.</p>
+      </div>
+      <div class="elig-card">
+        <div class="elig-num" style="background:var(--sage-pale);color:var(--olive-dark)">2</div>
+        <h4>Plan Entry Dates</h4>
+        <p>Enrollment begins on the 1st day of the quarter after you meet eligibility. Entry dates: January 1, April 1, July 1, October 1.</p>
+      </div>
+      <div class="elig-card">
+        <div class="elig-num" style="background:var(--lavender-pale);color:var(--plum)">3</div>
+        <h4>Deferral Types</h4>
+        <p>Choose Pre-Tax contributions or Roth After-Tax contributions — or split between both. Deferral changes are allowed quarterly.</p>
+      </div>
+      <div class="elig-card">
+        <div class="elig-num" style="background:var(--gold-pale);color:var(--warm-brown)">4</div>
+        <h4>Rollovers Welcome</h4>
+        <p>You can roll in prior 401(k)s and IRAs anytime. Consolidate your retirement savings in one place. Contact Principal to start a rollover.</p>
+      </div>
+    </div>
+    <div style="margin-top:24px;background:var(--blush-pale);border:1px solid var(--blush);border-left:4px solid var(--peach);border-radius:8px;padding:16px 20px;font-size:13px;color:var(--ink);line-height:1.6">
+      <strong>Plan Contact:</strong> Nina Eiland, Executive Vice President · 10720 U.S. 84 E, Ashford, AL 36312 · (334) 814-5024 · <a href="mailto:neiland@amxtrucking.com" style="color:var(--terra-dark)">neiland@amxtrucking.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO ENROLL -->
+<section class="sec bg-parchment" id="enroll">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Enrollment</div>
+    <div class="sec-title" style="color:var(--ink)">Three Ways to <em style="color:var(--warm-brown)">Enroll</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">Getting started takes just a few minutes. Choose the option that works best for you. Have your Social Security number and date of birth handy.</p>
+    <div class="enroll-steps">
+      <div class="enroll-step">
+        <span class="enroll-step-icon">💻</span>
+        <h4>Online at Principal.com</h4>
+        <p>The fastest way. Visit <a href="https://principal.com/Welcome" target="_blank" style="color:var(--terra-dark);font-weight:600">principal.com/Welcome</a> to create your account and make all your elections in one session.</p>
+        <ul>
+          <li>Set security preferences</li>
+          <li>Review important plan notices</li>
+          <li>Set your contribution percentage</li>
+          <li>Choose your investments</li>
+          <li>Designate your beneficiary</li>
+        </ul>
+        <div style="margin-top:16px;padding:12px;background:var(--sage-pale);border-radius:8px;font-size:12px;color:var(--olive-dark)">Default investment if no selection made: <strong>RetirePilot Moderate R1</strong> — a target-date fund based on your age.</div>
+      </div>
+      <div class="enroll-step">
+        <span class="enroll-step-icon">📱</span>
+        <h4>Principal® Mobile App</h4>
+        <p>Download the Principal app on iOS or Android. Manage contributions, check your balance, change investments, and view statements anytime.</p>
+        <ul>
+          <li>Available on iPhone & Android</li>
+          <li>Secure face/fingerprint login</li>
+          <li>Full account management</li>
+          <li>Or: Text <strong>ENROLL</strong> to <strong>78259</strong></li>
+        </ul>
+        <div style="margin-top:16px;display:flex;gap:8px">
+          <div style="padding:8px 14px;background:var(--ink);color:var(--white);border-radius:7px;font-size:12px;font-weight:600;cursor:pointer">🍎 App Store</div>
+          <div style="padding:8px 14px;background:var(--ink);color:var(--white);border-radius:7px;font-size:12px;font-weight:600;cursor:pointer">▶ Google Play</div>
+        </div>
+      </div>
+      <div class="enroll-step">
+        <span class="enroll-step-icon">📞</span>
+        <h4>Phone with Principal</h4>
+        <p>Prefer to talk it through? Call Principal's team for personalized help enrolling, selecting investments, or requesting paper enrollment forms (free).</p>
+        <ul>
+          <li>Call: <a href="tel:18005477754" style="color:var(--terra-dark);font-weight:600">1-800-547-7754</a></li>
+          <li>Hours: Mon–Fri, 7am–9pm CT</li>
+          <li>Spanish language available</li>
+          <li>Paper forms available at no charge</li>
+        </ul>
+        <div style="margin-top:16px;padding:10px 14px;background:var(--blush-pale);border-radius:8px;font-size:12px;color:var(--ink);line-height:1.5">Questions about the plan? Contact <strong>Nina Eiland</strong> at (334) 814-5024 before enrolling.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2026 LIMITS -->
+<section class="sec bg-white" id="limits">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">2026 Plan Year</div>
+    <div class="sec-title" style="color:var(--ink)">Contribution <em style="color:var(--warm-brown)">Limits</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">IRS limits on how much you can contribute in 2026. Contribute at least 6% to receive the full AMX employer match of 3%.</p>
+    <div class="limits-grid">
+      <div class="limit-card" style="background:var(--sage-pale);border:1px solid var(--sage)">
+        <div class="limit-card-label" style="color:var(--olive-dark)">Under Age 50</div>
+        <div class="limit-card-val" style="color:var(--olive-dark)">$24,500</div>
+        <div class="limit-card-sub" style="color:var(--olive)">Annual maximum deferral</div>
+      </div>
+      <div class="limit-card" style="background:var(--blush-pale);border:1px solid var(--blush)">
+        <div class="limit-card-label" style="color:var(--terra-dark)">Age 50–59 or 64+</div>
+        <div class="limit-card-val" style="color:var(--terra-dark)">$32,500</div>
+        <div class="limit-card-sub" style="color:var(--terracotta)">Includes $8,000 catch-up contribution</div>
+      </div>
+      <div class="limit-card" style="background:var(--lavender-pale);border:1px solid var(--lavender)">
+        <div class="limit-card-label" style="color:var(--plum)">Age 60–63</div>
+        <div class="limit-card-val" style="color:var(--plum)">$35,750</div>
+        <div class="limit-card-sub" style="color:var(--purple)">Super catch-up contribution</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;background:var(--gold-pale);border:1px solid var(--gold);border-radius:8px;padding:14px 20px;font-size:13px;color:var(--ink);line-height:1.6">
+      <strong>Your contributions are 100% vested immediately.</strong> Rollovers from other plans are also accepted anytime and immediately vested. The employer match vests over 5 years (0%→25%→50%→75%→100%).
+    </div>
+  </div>
+</section>
+
+<!-- MATCH CALCULATOR -->
+<section class="sec bg-parchment" id="calculator">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">See Your Numbers</div>
+    <div class="sec-title" style="color:var(--ink)">Match <em style="color:var(--warm-brown)">Calculator</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">See exactly how much AMX will add to your retirement savings based on your salary and contribution rate.</p>
+    <div class="calc-card">
+      <div class="calc-head">
+        <div>
+          <h3>Your 401(k) Match Estimator</h3>
+          <p>Contribute 6% or more to get the full 3% employer match — that's free money.</p>
+        </div>
+        <div style="background:rgba(224,151,115,.15);border:1px solid rgba(224,151,115,.25);border-radius:8px;padding:14px 20px;text-align:center;flex-shrink:0">
+          <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--peach);margin-bottom:4px">AMX Matches</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold-pale);line-height:1">50¢</div>
+          <div style="font-size:12px;color:rgba(255,255,255,.5)">per $1 you contribute<br>(up to 6% of pay)</div>
+        </div>
+      </div>
+      <div class="calc-body">
+        <div class="calc-grid">
+          <div>
+            <div class="field-group">
+              <div class="field-label">Your Annual Salary</div>
+              <input class="field-input" type="number" id="salary" value="55000" min="0" max="500000" oninput="calcMatch()">
+            </div>
+            <div class="field-group">
+              <div class="field-label">Your Contribution Rate: <span id="rate-display" style="color:var(--peach);font-weight:700">6%</span></div>
+              <input class="range-input" type="range" id="rate" min="1" max="25" value="6" oninput="calcMatch()">
+              <div class="range-labels"><span>1%</span><span>25%</span></div>
+            </div>
+            <div class="field-group">
+              <div class="field-label">Age Group</div>
+              <select class="field-input" id="age-group" onchange="calcMatch()" style="font-size:14px">
+                <option value="24500">Under 50 — max $24,500</option>
+                <option value="32500">Age 50–59 or 64+ — max $32,500</option>
+                <option value="35750">Age 60–63 — max $35,750</option>
+              </select>
+            </div>
+            <div class="max-tip" id="max-tip" style="display:none">
+              <strong>⚠️ IRS Limit Reached:</strong> Your contribution exceeds the 2026 IRS limit. It has been capped at the maximum for your age group.
+            </div>
+          </div>
+          <div>
+            <div class="calc-results">
+              <div style="font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);margin-bottom:14px">Your Annual Retirement Savings</div>
+              <div class="calc-result-item">
+                <span class="calc-result-label">Your annual contribution</span>
+                <span class="calc-result-val primary" id="res-yours">$3,300</span>
+              </div>
+              <div class="calc-result-item">
+                <span class="calc-result-label">AMX employer match</span>
+                <span class="calc-result-val accent" id="res-match">$1,650</span>
+              </div>
+              <div class="calc-result-item" style="border-bottom:none;margin-top:6px;padding-top:14px;border-top:2px solid var(--sage)">
+                <span class="calc-result-label" style="font-weight:700;color:var(--ink)">Total saved per year</span>
+                <span class="calc-result-val total" id="res-total">$4,950</span>
+              </div>
+              <div class="calc-note">Per paycheck (52 periods): You contribute <span id="res-pp-you">$63.46</span> · AMX adds <span id="res-pp-match">$31.73</span></div>
+            </div>
+            <div style="margin-top:14px;background:var(--blush-pale);border:1px solid var(--blush);border-radius:var(--rs);padding:16px;font-size:13px;color:var(--ink);line-height:1.6" id="match-advice">
+              ✅ You're contributing 6% — <strong>you're getting the full AMX match!</strong> That's $1,650 in free retirement savings this year.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTOR QUIZ -->
+<section class="sec bg-sage" id="quiz">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--olive-dark)">Know Your Style</div>
+    <div class="sec-title" style="color:var(--ink)">What Type of <em style="color:var(--warm-brown)">Investor Are You?</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">Two key questions guide your investment choices: how comfortable are you with risk, and how long until you retire? Take this quick quiz to find your investor profile.</p>
+    <div class="quiz-card">
+      <div class="quiz-head">
+        <div>
+          <h3>Investor Profile Quiz</h3>
+          <p>7 questions · Takes 2 minutes · Helps you choose your investment mix. Based on Morningstar Investment Management methodology.</p>
+        </div>
+        <div class="quiz-score-display">
+          <span class="quiz-score-num" id="quiz-score">0</span>
+          <span class="quiz-score-lbl">Your Score</span>
+        </div>
+      </div>
+      <div class="quiz-body" id="quiz-body">
+
+        <div class="quiz-q" data-q="1">
+          <div class="quiz-q-text">1. How much do you know about investing?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,1,0)"><span class="quiz-option-label">Just learning the ropes</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,1,6)"><span class="quiz-option-label">Somewhat knowledgeable</span><span class="quiz-option-pts">6 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,1,12)"><span class="quiz-option-label">An expert</span><span class="quiz-option-pts">12 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="2">
+          <div class="quiz-q-text">2. When planning for retirement, what is your main investment goal?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,2,0)"><span class="quiz-option-label">Not losing money</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,2,8)"><span class="quiz-option-label">Keeping my money and making more money</span><span class="quiz-option-pts">8 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,2,17)"><span class="quiz-option-label">Making as much money as possible</span><span class="quiz-option-pts">17 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="3">
+          <div class="quiz-q-text">3. How likely are you to put money in investments that earn stable but lower returns?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,3,0)"><span class="quiz-option-label">Very likely</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,3,5)"><span class="quiz-option-label">Likely</span><span class="quiz-option-pts">5 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,3,9)"><span class="quiz-option-label">Unlikely</span><span class="quiz-option-pts">9 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,3,14)"><span class="quiz-option-label">Very unlikely</span><span class="quiz-option-pts">14 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="4">
+          <div class="quiz-q-text">4. How comfortable are you with the value of your investments rising and falling over time?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,4,0)"><span class="quiz-option-label">Not comfortable</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,4,6)"><span class="quiz-option-label">Neutral</span><span class="quiz-option-pts">6 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,4,12)"><span class="quiz-option-label">Comfortable</span><span class="quiz-option-pts">12 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="5">
+          <div class="quiz-q-text">5. One of your investments is suddenly underperforming and showing a loss — what would you do?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,5,0)"><span class="quiz-option-label">Immediately move to a less risky investment</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,5,7)"><span class="quiz-option-label">Wait it out at least a year before changing</span><span class="quiz-option-pts">7 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,5,13)"><span class="quiz-option-label">Stick with the current investment</span><span class="quiz-option-pts">13 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="6">
+          <div class="quiz-q-text">6. Given $20,000 to invest, which scenario would you choose? (Best case / Worst case over 3 years)</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,6,0)"><span class="quiz-option-label">Gain $1,000 (+5%) / Lose $900 (−4.5%) — very stable</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,6,5)"><span class="quiz-option-label">Gain $1,200 (+6%) / Lose $1,600 (−8%)</span><span class="quiz-option-pts">5 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,6,9)"><span class="quiz-option-label">Gain $1,400 (+7%) / Lose $2,200 (−11%)</span><span class="quiz-option-pts">9 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,6,14)"><span class="quiz-option-label">Gain $1,600 (+8%) / Lose $3,200 (−16%) — more aggressive</span><span class="quiz-option-pts">14 pts</span></div>
+          </div>
+        </div>
+
+        <div class="quiz-q" data-q="7">
+          <div class="quiz-q-text">7. You invest $5,000 and in Year 1 the stock market drops. Are you more likely to:</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,7,0)"><span class="quiz-option-label">Sell all of your investment</span><span class="quiz-option-pts">0 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,7,6)"><span class="quiz-option-label">Sell some of your investment</span><span class="quiz-option-pts">6 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,7,12)"><span class="quiz-option-label">Leave your investment alone</span><span class="quiz-option-pts">12 pts</span></div>
+            <div class="quiz-option" onclick="selectOption(this,7,17)"><span class="quiz-option-label">Buy more of your investment</span><span class="quiz-option-pts">17 pts</span></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="quiz-footer">
+        <div style="font-size:13px;color:var(--text-muted)" id="quiz-progress">Answer all 7 questions to see your investor profile</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--ink)">Total: <span id="quiz-total">0</span> / 100 points</div>
+      </div>
+      <div class="quiz-profile-result" id="quiz-result"></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVESTOR PROFILES -->
+<section class="sec bg-cream" id="profiles">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Investment Guidance</div>
+    <div class="sec-title" style="color:var(--ink)">Five Investor <em style="color:var(--warm-brown)">Profiles</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">Based on your quiz score and years to retirement, find the asset mix that fits your goals. Log in to principal.com to apply your selection.</p>
+    <div class="profiles-grid">
+
+      <div class="profile-card" style="border-color:var(--sage)">
+        <div class="profile-card-top" style="background:var(--sage-pale)">
+          <span class="profile-card-icon">🛡️</span>
+          <h4 style="color:var(--olive-dark)">Conservative</h4>
+          <div class="profile-card-score">Score 0–17</div>
+          <div style="margin-top:10px">
+            <div class="alloc-bar">
+              <div class="alloc-segment" style="flex:45;background:var(--blush)"></div>
+              <div class="alloc-segment" style="flex:30;background:var(--sage-mid)"></div>
+              <div class="alloc-segment" style="flex:13;background:var(--peach)"></div>
+              <div class="alloc-segment" style="flex:5;background:var(--purple)"></div>
+              <div class="alloc-segment" style="flex:7;background:var(--lavender)"></div>
+            </div>
+            <div class="alloc-legend">
+              <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--blush)"></div>45% Fixed</div>
+              <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--sage-mid)"></div>30% ST Fixed</div>
+              <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--peach)"></div>13% Large US</div>
+              <div class="alloc-legend-item"><div class="alloc-dot" style="background:var(--lavender)"></div>7% Intl</div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card-body">
+          <p>Designed for cautious investors with shorter time horizons or high sensitivity to short-term losses. Focused on capital preservation with some inflation protection.</p>
+        </div>
+      </div>
+
+      <div class="profile-card" style="border-color:var(--sage-mid)">
+        <div class="profile-card-top" style="background:var(--sage-pale)">
+          <span class="profile-card-icon">⚖️</span>
+          <h4 style="color:var(--olive-dark)">Moderate Conservative</h4>
+          <div class="profile-card-score">Score 18–41</div>
+          <div style="margin-top:10px">
+            <div class="alloc-bar">
+              <div class="alloc-segment" style="flex:31;background:var(--blush)"></div>
+              <div class="alloc-segment" style="flex:24;background:var(--sage-mid)"></div>
+              <div class="alloc-segment" style="flex:19;background:var(--peach)"></div>
+              <div class="alloc-segment" style="flex:12;background:var(--purple)"></div>
+              <div class="alloc-segment" style="flex:14;background:var(--lavender)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card-body">
+          <p>Seeks modest capital appreciation and income. Moderate time horizon or slightly higher risk tolerance. Still focused on capital preservation with some growth.</p>
+        </div>
+      </div>
+
+      <div class="profile-card" style="border-color:var(--gold);border-width:2px">
+        <div class="profile-card-top" style="background:var(--gold-pale)">
+          <span class="profile-card-icon">🎯</span>
+          <h4 style="color:var(--warm-brown)">Moderate</h4>
+          <div class="profile-card-score" style="color:var(--warm-brown)">Score 42–61 · Most Common</div>
+          <div style="margin-top:10px">
+            <div class="alloc-bar">
+              <div class="alloc-segment" style="flex:19;background:var(--blush)"></div>
+              <div class="alloc-segment" style="flex:18;background:var(--sage-mid)"></div>
+              <div class="alloc-segment" style="flex:27;background:var(--peach)"></div>
+              <div class="alloc-segment" style="flex:17;background:var(--purple)"></div>
+              <div class="alloc-segment" style="flex:19;background:var(--lavender)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card-body">
+          <p>Seeks relatively stable growth with lower income. Higher risk tolerance and longer time horizon. Steady growth while limiting fluctuation. <strong>AMX plan default.</strong></p>
+        </div>
+      </div>
+
+      <div class="profile-card" style="border-color:var(--peach)">
+        <div class="profile-card-top" style="background:var(--blush-pale)">
+          <span class="profile-card-icon">📈</span>
+          <h4 style="color:var(--terra-dark)">Moderate Aggressive</h4>
+          <div class="profile-card-score">Score 62–83</div>
+          <div style="margin-top:10px">
+            <div class="alloc-bar">
+              <div class="alloc-segment" style="flex:10;background:var(--blush)"></div>
+              <div class="alloc-segment" style="flex:5;background:var(--sage-mid)"></div>
+              <div class="alloc-segment" style="flex:32;background:var(--peach)"></div>
+              <div class="alloc-segment" style="flex:27;background:var(--purple)"></div>
+              <div class="alloc-segment" style="flex:26;background:var(--lavender)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card-body">
+          <p>High risk tolerance and longer time horizon. Little need for current income. Main objective is capital appreciation. Should tolerate moderate portfolio fluctuations.</p>
+        </div>
+      </div>
+
+      <div class="profile-card" style="border-color:var(--terra-dark)">
+        <div class="profile-card-top" style="background:var(--parchment)">
+          <span class="profile-card-icon">🚀</span>
+          <h4 style="color:var(--terra-dark)">Aggressive</h4>
+          <div class="profile-card-score">Score 84–100</div>
+          <div style="margin-top:10px">
+            <div class="alloc-bar">
+              <div class="alloc-segment" style="flex:37;background:var(--peach)"></div>
+              <div class="alloc-segment" style="flex:32;background:var(--purple)"></div>
+              <div class="alloc-segment" style="flex:31;background:var(--lavender)"></div>
+            </div>
+          </div>
+        </div>
+        <div class="profile-card-body">
+          <p>High risk tolerance AND long investment horizon. Maximum growth objective. Larger and more frequent portfolio fluctuations. Not for those near retirement.</p>
+        </div>
+      </div>
+
+    </div>
+    <div style="margin-top:20px;background:var(--blush-pale);border:1px solid var(--blush);border-radius:8px;padding:14px 20px;font-size:12px;color:var(--ink);line-height:1.65">
+      <strong>Disclaimer:</strong> These profiles are for educational purposes only and do not constitute investment advice. Investing involves risk, including possible loss of principal. Asset allocation and diversification do not ensure a profit or protect against a loss. Consult a financial professional before making investment decisions. © 2023 Morningstar Investment Management LLC.
+    </div>
+  </div>
+</section>
+
+<!-- DEFAULT INVESTMENTS -->
+<section class="sec bg-white" id="funds">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Plan Investments</div>
+    <div class="sec-title" style="color:var(--ink)">Default Investment <em style="color:var(--warm-brown)">Options</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">If you don't choose investments, your contributions go to the RetirePilot Moderate R1 target-date fund matching your retirement age. You can change investments anytime at principal.com. Plan ID: 6-36521.</p>
+
+    <div style="background:var(--gold-pale);border:1px solid var(--gold);border-radius:var(--rs);padding:18px 20px;margin-bottom:24px;font-size:13px;color:var(--ink);line-height:1.65">
+      <strong>Default Investment: RetirePilot Moderate R1</strong> — sub-advised by flexPATH Strategies. A target-date fund series that automatically becomes more conservative as you approach retirement. See the table below to find your default fund based on your planned retirement date.
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:28px">
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);margin-bottom:12px">RetirePilot Moderate R1 — Default Fund Selector</div>
+        <table class="fund-table" style="border-radius:var(--rs);overflow:hidden">
+          <thead><tr><th>Normal Retirement Date</th><th>Your Default Fund</th></tr></thead>
+          <tbody>
+            <tr><td>2019 or earlier</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate Retirement Fund R1</td></tr>
+            <tr><td>2020–2029</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate 2025 Fund R1</td></tr>
+            <tr><td>2030–2039</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate 2035 Fund R1</td></tr>
+            <tr><td>2040–2049</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate 2045 Fund R1</td></tr>
+            <tr><td>2050–2059</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate 2055 Fund R1</td></tr>
+            <tr><td>2060 or later</td><td style="font-weight:600;color:var(--warm-brown)">RetirePilot Moderate 2065 Fund R1</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--olive-dark);margin-bottom:12px">Plan Investment Asset Classes Available</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="background:var(--sage-pale);border-radius:8px;padding:12px 14px;border:1px solid var(--sage)"><div style="font-size:13px;font-weight:600;color:var(--olive-dark)">Short-Term Fixed Income</div><div style="font-size:12px;color:var(--text-muted)">Stable Value R1 Fund — flexPATH Strategies</div></div>
+          <div style="background:var(--blush-pale);border-radius:8px;padding:12px 14px;border:1px solid var(--blush)"><div style="font-size:13px;font-weight:600;color:var(--terra-dark)">Fixed Income</div><div style="font-size:12px;color:var(--text-muted)">High Yield Bond, Intermediate Core Bond, Core-Plus Bond</div></div>
+          <div style="background:var(--gold-pale);border-radius:8px;padding:12px 14px;border:1px solid var(--gold)"><div style="font-size:13px;font-weight:600;color:var(--warm-brown)">Large U.S. Equity</div><div style="font-size:12px;color:var(--text-muted)">Large Cap Value, Large Blend, Large Cap Growth</div></div>
+          <div style="background:var(--lavender-pale);border-radius:8px;padding:12px 14px;border:1px solid var(--lavender)"><div style="font-size:13px;font-weight:600;color:var(--plum)">Small/Mid U.S. Equity</div><div style="font-size:12px;color:var(--text-muted)">Mid Cap Value, Mid Cap Blend, Mid Cap Growth, Small Cap</div></div>
+          <div style="background:var(--parchment);border-radius:8px;padding:12px 14px;border:1px solid var(--border)"><div style="font-size:13px;font-weight:600;color:var(--brown)">Global / International Equity</div><div style="font-size:12px;color:var(--text-muted)">Emerging Markets, Foreign Large Value/Blend/Growth, Global REIT</div></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:var(--blush-pale);border:1px solid var(--blush);border-radius:8px;padding:14px 20px;font-size:12px;color:var(--ink);line-height:1.65">
+      Plan administrative expense: <strong>0.18% annually</strong> (one-twelfth deducted monthly). Additional third-party fees: Cambridge Investment Research Advisors 0.35%/yr · ERISA Services of Alabama $30.00/participant/yr. View all fee details at <a href="https://principal.com" target="_blank" style="color:var(--terra-dark)">principal.com</a>. Full Investment Option Summary as of 06/30/2024 available in your enrollment workbook.
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="sec bg-parchment" id="fees">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Transparency</div>
+    <div class="sec-title" style="color:var(--ink)">Plan Fees & <em style="color:var(--warm-brown)">Expenses</em></div>
+    <p class="sec-desc" style="color:var(--text-muted)">Understanding fees helps you make better decisions. All fees are visible on your statements at principal.com. Contract/Plan ID: 6-36521.</p>
+    <div class="fees-grid">
+      <div class="fee-card">
+        <h4>Plan Administrative Fees</h4>
+        <div class="fee-row"><span class="fee-row-label">Annual plan admin (Principal)</span><span class="fee-row-val">0.18% / yr</span></div>
+        <div class="fee-row"><span class="fee-row-label">Cambridge Investment Research Advisors</span><span class="fee-row-val">0.35% / yr</span></div>
+        <div class="fee-row"><span class="fee-row-label">ERISA Services of Alabama (TPA)</span><span class="fee-row-val">$30.00 / participant / yr</span></div>
+        <div style="margin-top:10px;font-size:11px;color:var(--text-muted);font-style:italic">Deducted monthly from account balance. View at principal.com and on your statements.</div>
+      </div>
+      <div class="fee-card">
+        <h4>Participant Transaction Fees</h4>
+        <div class="fee-row"><span class="fee-row-label">Distribution fee</span><span class="fee-row-val">$50.00</span></div>
+        <div class="fee-row"><span class="fee-row-label">Loan maintenance</span><span class="fee-row-val">$12.00 / quarter</span></div>
+        <div class="fee-row"><span class="fee-row-label">Loan setup fee</span><span class="fee-row-val">$75.00</span></div>
+        <div class="fee-row"><span class="fee-row-label">Wire transfer fee</span><span class="fee-row-val">$25.00</span></div>
+        <div class="fee-row"><span class="fee-row-label">Overnight mail fee</span><span class="fee-row-val">$25.00</span></div>
+        <div class="fee-row"><span class="fee-row-label">402(g) refund fee (over IRS limit)</span><span class="fee-row-val">$50.00</span></div>
+        <div style="margin-top:10px;font-size:11px;color:var(--text-muted);font-style:italic">Only charged when the specific service is used. QDRO processing: $350 split equally between parties.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec bg-white" id="contacts">
+  <div class="sec-inner">
+    <div class="sec-label" style="color:var(--peach)">Need Help?</div>
+    <div class="sec-title" style="color:var(--ink)">How to <em style="color:var(--warm-brown)">Reach Us</em></div>
+    <div class="access-grid" style="margin-bottom:28px">
+      <div class="access-card">
+        <span class="access-icon">🌐</span>
+        <h4>Principal Online</h4>
+        <p>Manage your account, check balance, change investments, update beneficiaries</p>
+        <a href="https://principal.com" target="_blank" class="access-action">principal.com →</a>
+      </div>
+      <div class="access-card">
+        <span class="access-icon">📞</span>
+        <h4>Principal Phone</h4>
+        <p>Mon–Fri, 7am–9pm CT. Spanish available. Paper forms free on request.</p>
+        <a href="tel:18005477754" class="access-action">1-800-547-7754 →</a>
+      </div>
+      <div class="access-card">
+        <span class="access-icon">📱</span>
+        <h4>Text & Mobile</h4>
+        <p>Text ENROLL to 78259 to get started. Download the Principal app on iOS or Android.</p>
+        <a href="sms:78259?body=ENROLL" class="access-action">Text ENROLL to 78259 →</a>
+      </div>
+      <div class="access-card">
+        <span class="access-icon">🏢</span>
+        <h4>AMX Human Resources</h4>
+        <p>Questions about eligibility, plan provisions, or getting started — contact HR before enrolling.</p>
+        <a href="mailto:neiland@amxtrucking.com" class="access-action">neiland@amxtrucking.com →</a>
+      </div>
+    </div>
+    <div class="contact-strip">
+      <div>
+        <h3>AMX Plan Administrator</h3>
+        <p>For questions about the plan, eligibility, or to request investment information, prospectuses, or statements at no charge — contact the plan administrator directly.</p>
+        <div style="margin-top:14px;font-size:13px;color:rgba(255,255,255,.4);line-height:1.7">Alabama Motor Express, Inc. · 10720 U.S. 84 E, Ashford, AL 36312</div>
+      </div>
+      <div class="contact-items">
+        <a href="tel:3348145024" class="contact-item">
+          <span class="contact-item-icon">📞</span>
+          <span class="contact-item-text">
+            <span class="contact-item-label">Phone</span>
+            <span class="contact-item-val">334-814-5024</span>
+          </span>
+        </a>
+        <a href="mailto:neiland@amxtrucking.com" class="contact-item">
+          <span class="contact-item-icon">📧</span>
+          <span class="contact-item-text">
+            <span class="contact-item-label">Nina Eiland — EVP / Plan Admin</span>
+            <span class="contact-item-val">neiland@amxtrucking.com</span>
+          </span>
+        </a>
+        <a href="https://principal.com" target="_blank" class="contact-item">
+          <span class="contact-item-icon">🌐</span>
+          <span class="contact-item-text">
+            <span class="contact-item-label">Principal — Enroll & Account Access</span>
+            <span class="contact-item-val">principal.com/Welcome</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">AMX <em>401(k)</em> Retirement Plan</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.35);margin-top:2px">Alabama Motor Express, Inc. · Contract/Plan ID: 6-36521</div>
+        <p class="footer-tagline">Administered by Principal Life Insurance Company®. This page provides educational information only and does not constitute investment advice. Investing involves risk, including possible loss of principal.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Enroll</h5>
+        <ul>
+          <li><a href="https://principal.com/Welcome" target="_blank">principal.com/Welcome</a></li>
+          <li><a href="https://apps.apple.com/us/app/principal/id1064656012" target="_blank">Download Principal App</a></li>
+          <li><a href="tel:18005477754">Call 1-800-547-7754</a></li>
+          <li><a href="sms:78259?body=ENROLL">Text ENROLL to 78259</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="mailto:neiland@amxtrucking.com">Investment Option Summary</a></li>
+          <li><a href="mailto:neiland@amxtrucking.com">Beneficiary Designation Form</a></li>
+          <li><a href="mailto:neiland@amxtrucking.com">Rollover Instructions</a></li>
+          <li><a href="mailto:neiland@amxtrucking.com">Contact Plan Admin</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Alabama Motor Express, Inc. · Plan ID: 6-36521 · Insurance products and plan administrative services provided through Principal Life Insurance Company®. Securities offered through Principal Securities, Inc., member SIPC. Referenced companies are members of the Principal Financial Group®, Des Moines, Iowa 50392. Investor profile quiz © 2023 Morningstar Investment Management LLC — used for educational purposes only.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ── MATCH CALCULATOR ──
+function calcMatch(){
+  const salary = parseFloat(document.getElementById('salary').value)||0;
+  const rate = parseInt(document.getElementById('rate').value)||0;
+  const maxLimit = parseInt(document.getElementById('age-group').value)||24500;
+  document.getElementById('rate-display').textContent = rate+'%';
+
+  let yourContrib = salary * (rate/100);
+  const maxTip = document.getElementById('max-tip');
+  if(yourContrib > maxLimit){ yourContrib = maxLimit; maxTip.style.display='block'; }
+  else { maxTip.style.display='none'; }
+
+  const matchableRate = Math.min(rate,6)/100;
+  const match = salary * matchableRate * 0.5;
+  const total = yourContrib + match;
+
+  const fmt = v => '$'+Math.round(v).toLocaleString();
+  document.getElementById('res-yours').textContent = fmt(yourContrib);
+  document.getElementById('res-match').textContent = fmt(match);
+  document.getElementById('res-total').textContent = fmt(total);
+  document.getElementById('res-pp-you').textContent = fmt(yourContrib/52);
+  document.getElementById('res-pp-match').textContent = fmt(match/52);
+
+  const advice = document.getElementById('match-advice');
+  if(rate >= 6){
+    advice.innerHTML = '✅ You\'re contributing '+rate+'% — <strong>you\'re getting the full AMX match!</strong> That\'s '+fmt(match)+' in free retirement savings this year.';
+    advice.style.background='var(--sage-pale)';advice.style.borderColor='var(--sage)';
+  } else {
+    const extra = Math.round(salary*((6-rate)/100));
+    advice.innerHTML = '⚠️ You\'re leaving money on the table. Contribute just <strong>'+fmt(extra)+' more per year</strong> ('+fmt(extra/52)+'/paycheck) to reach 6% and get the full AMX match.';
+    advice.style.background='var(--blush-pale)';advice.style.borderColor='var(--blush)';
+  }
+}
+calcMatch();
+
+// ── INVESTOR QUIZ ──
+const quizAnswers = {};
+const PROFILES = [
+  {name:'Conservative',range:[0,17],color:'var(--sage-mid)',desc:'Designed for cautious investors with sensitivity to short-term losses or a shorter time horizon. Focused on capital preservation while beating inflation over the long term.'},
+  {name:'Moderate Conservative',range:[18,41],color:'var(--olive)',desc:'Seeks both modest capital appreciation and income. Suitable for investors with a moderate time horizon or slightly higher risk tolerance than the most conservative. Still focused on preserving capital.'},
+  {name:'Moderate',range:[42,61],color:'var(--honey)',desc:'Seeks relatively stable growth with a lower level of income potential. Higher risk tolerance and longer time horizon. Steady growth while limiting fluctuation. This is the AMX plan default.'},
+  {name:'Moderate Aggressive',range:[62,83],color:'var(--peach)',desc:'High tolerance for risk and a longer time horizon. Little need for current income — the main objective is capital appreciation. Should tolerate moderate portfolio fluctuations.'},
+  {name:'Aggressive',range:[84,100],color:'var(--terra-dark)',desc:'Both high risk tolerance AND a long investment horizon. High growth is the objective. Larger and more frequent fluctuations. Best suited for investors with many years until retirement.'},
+];
+
+function selectOption(el, qNum, pts){
+  document.querySelectorAll(`[data-q="${qNum}"] .quiz-option`).forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  quizAnswers[qNum] = pts;
+  updateQuizScore();
+}
+
+function updateQuizScore(){
+  const total = Object.values(quizAnswers).reduce((a,b)=>a+b,0);
+  document.getElementById('quiz-score').textContent = total;
+  document.getElementById('quiz-total').textContent = total;
+  const answered = Object.keys(quizAnswers).length;
+  const prog = document.getElementById('quiz-progress');
+  if(answered < 7){
+    prog.textContent = `${answered}/7 questions answered`;
+    document.getElementById('quiz-result').classList.remove('show');
+  } else {
+    prog.textContent = 'Quiz complete! See your investor profile below.';
+    const profile = PROFILES.find(p=>total>=p.range[0]&&total<=p.range[1]);
+    if(profile){
+      const res = document.getElementById('quiz-result');
+      res.innerHTML = `
+        <div class="profile-badge">
+          <div class="profile-dot" style="background:${profile.color}"></div>
+          <div class="profile-name">Your Profile: ${profile.name}</div>
+        </div>
+        <div class="profile-desc">${profile.desc}</div>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <a href="https://principal.com" target="_blank" style="padding:10px 20px;background:var(--peach);color:var(--ink);font-weight:700;font-size:13px;border-radius:8px;text-decoration:none">Apply This Profile at principal.com →</a>
+          <div style="padding:10px 20px;background:var(--sage-pale);color:var(--olive-dark);font-weight:600;font-size:13px;border-radius:8px;border:1px solid var(--sage)">Score: ${total} / 100 · ${profile.name}</div>
+        </div>`;
+      res.classList.add('show');
+    }
+  }
+}
+</script>
+</body>
+</html>
